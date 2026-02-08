@@ -16,14 +16,26 @@ const ContactPage: React.FC = () => {
   const [isSuccess, setIsSuccess] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
+  const validateEmail = (email: string) => {
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+  };
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+
+    if (!validateEmail(formData.email)) {
+      setError("Please enter a valid email address.");
+      return;
+    }
+
     setIsSubmitting(true);
     setError(null);
 
     try {
       await addDoc(collection(db, 'contacts'), {
-        ...formData,
+        name: formData.name.trim(),
+        email: formData.email.trim(),
+        message: formData.message.trim(),
         timestamp: serverTimestamp()
       });
       setIsSuccess(true);
@@ -46,7 +58,7 @@ const ContactPage: React.FC = () => {
 
   return (
     <InternalPageLayout>
-      <section className="pt-48 pb-64 px-[clamp(24px,5vw,64px)]">
+      <section>
         <div className="max-w-[1200px] mx-auto">
           <div className="mb-24">
             <motion.div
@@ -89,26 +101,34 @@ const ContactPage: React.FC = () => {
               <div className="mb-16">
                 <span className="text-white/20 text-[11px] font-bold uppercase tracking-[0.3em] block mb-4">Email us</span>
                 <a
-                  href="mailto:hello@rostra.com"
+                  href="mailto:info@rostra.in"
                   className="text-[clamp(24px,3vw,44px)] font-medium hover:text-[#E02424] transition-colors break-all leading-tight"
                 >
-                  hello<span className="text-[#E02424]">@</span>rostra.com
+                  info<span className="text-[#E02424]">@</span>rostra.in
                 </a>
               </div>
 
-              <div className="flex flex-col gap-8">
-                <div className="flex flex-col gap-2">
+              <div className="flex flex-col gap-10">
+                <div className="flex flex-col gap-4">
+                  <span className="text-white/20 text-[11px] font-bold uppercase tracking-[0.3em]">Call us</span>
+                  <div className="flex flex-col gap-2">
+                    <a href="tel:+918603038778" className="text-xl md:text-2xl font-medium hover:text-[#E02424] transition-colors">+91 8603038778</a>
+                    <a href="tel:+917903082941" className="text-xl md:text-2xl font-medium hover:text-[#E02424] transition-colors">+91 7903082941</a>
+                  </div>
+                </div>
+
+                <div className="flex flex-col gap-4">
                   <span className="text-white/20 text-[11px] font-bold uppercase tracking-[0.3em]">Social</span>
                   <div className="flex gap-6">
-                    {['Twitter', 'LinkedIn', 'Instagram'].map(social => (
-                      <a key={social} href="#" className="text-white hover:text-[#E02424] transition-colors font-medium">{social}</a>
-                    ))}
+                    <a href="#" className="text-white hover:text-[#E02424] transition-colors font-medium text-lg">Instagram</a>
+                    <a href="https://wa.me/918603038778?text=Hi%21%20I%27m%20interested%20in%20working%20with%20Rostra.%20Can%20we%20discuss%20a%20project%3F" target="_blank" rel="noopener noreferrer" className="text-white hover:text-[#E02424] transition-colors font-medium text-lg">WhatsApp</a>
+                    <a href="#" className="text-white hover:text-[#E02424] transition-colors font-medium text-lg">LinkedIn</a>
                   </div>
                 </div>
 
                 <div className="pt-12 border-t border-white/5">
                   <p className="text-white/40 text-sm max-w-[300px] leading-relaxed">
-                    Based in Dubai, UAE.<br />
+                    Based in Delhi, India.<br />
                     Operating worldwide.
                   </p>
                 </div>

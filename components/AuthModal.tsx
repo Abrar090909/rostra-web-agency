@@ -189,7 +189,7 @@ const AuthModal: React.FC<AuthModalProps> = ({ isOpen, onClose }) => {
                                                     type="email"
                                                     value={email}
                                                     onChange={(e) => setEmail(e.target.value)}
-                                                    placeholder="hello@rostra.com"
+                                                    placeholder="info@rostra.in"
                                                     className="bg-white/5 border border-white/10 rounded-2xl px-5 py-4 focus:border-[#E02424] focus:bg-white/10 transition-all outline-none text-white text-sm"
                                                 />
                                             </div>

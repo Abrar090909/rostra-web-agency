@@ -4,7 +4,7 @@ import CardSwap, { Card } from './CardSwap';
 
 export default function HowItWorksExtension() {
   return (
-    <section className="relative w-full bg-[rgb(17,17,17)] pt-32 pb-0 overflow-visible z-20">
+    <section className="relative w-full bg-[rgb(17,17,17)] pt-12 pb-0 overflow-hidden z-20">
       <div className="max-w-[1200px] mx-auto px-[48px] relative h-[480px]">
         {/* CardSwap is set to absolute bottom-0 right-0 inside its own component */}
         <CardSwap

@@ -7,7 +7,7 @@ import Footer from './Footer';
 const AboutPage: React.FC = () => {
   return (
     <InternalPageLayout>
-      <section className="pt-48 pb-32 px-[clamp(24px,5vw,64px)]">
+      <section>
         <div className="max-w-[1200px] mx-auto">
           {/* Hero */}
           <div className="mb-32">

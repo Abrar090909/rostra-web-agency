@@ -74,24 +74,34 @@ const Footer: React.FC = () => {
             className="flex flex-col justify-end"
           >
             <div className="flex items-center gap-4 mb-10">
-              <div className="w-12 h-12 rounded-full bg-[#E02424] flex items-center justify-center overflow-hidden">
-                <svg viewBox="0 0 100 100" className="w-8 h-8 text-white fill-current">
-                  <path d="M50 15c-19.3 0-35 15.7-35 35s15.7 35 35 35 35-15.7 35-35-15.7-35-35-35zm0 10c13.8 0 25 11.2 25 25s-11.2 25-25 25-25-11.2-25-25 11.2-25 25-25zm-5 10l-10 10 10 10 10-10-10-10z" />
-                </svg>
+              <div className="w-20 h-20 rounded-full bg-white flex items-center justify-center overflow-hidden">
+                <img src="/logo.png" alt="Rostra Logo" className="w-16 h-16 object-contain scale-[2]" />
               </div>
               <div className="flex flex-col">
                 <span className="text-lg font-semibold tracking-tight">Rostra agency</span>
-                <div className="flex gap-3 mt-1">
+                <div className="flex flex-col gap-1.5 mt-4 group/contact">
+                  <a href="tel:+918603038778" className="text-sm text-white/60 hover:text-[#E02424] transition-colors flex items-center gap-2">
+                    <span className="w-1 h-1 rounded-full bg-[#E02424]" />
+                    +91 8603038778
+                  </a>
+                  <a href="tel:+917903082941" className="text-sm text-white/60 hover:text-[#E02424] transition-colors flex items-center gap-2">
+                    <span className="w-1 h-1 rounded-full bg-[#E02424]" />
+                    +91 7903082941
+                  </a>
+                </div>
+                <div className="flex gap-3 mt-3">
                   <a href="#" className="opacity-30 hover:opacity-100 transition-opacity"><i className="fa-brands fa-instagram text-xs"></i></a>
-                  <a href="#" className="opacity-30 hover:opacity-100 transition-opacity"><i className="fa-brands fa-whatsapp text-xs"></i></a>
+                  <a href="https://wa.me/918603038778?text=Hi%21%20I%27m%20interested%20in%20working%20with%20Rostra.%20Can%20we%20discuss%20a%20project%3F" target="_blank" rel="noopener noreferrer" className="opacity-30 hover:opacity-100 transition-opacity">
+                    <i className="fa-brands fa-whatsapp text-xs"></i>
+                  </a>
                 </div>
               </div>
             </div>
 
             <div className="mb-10">
               <span className="text-white/30 text-[11px] font-bold uppercase tracking-widest block mb-2">Contact me</span>
-              <a href="mailto:hello@rostra.com" className="text-[clamp(20px,3vw,32px)] font-medium hover:text-[#E02424] transition-colors break-all">
-                hello<span className="text-[#E02424]">@</span>rostra.com
+              <a href="mailto:info@rostra.in" className="text-[clamp(20px,3vw,32px)] font-medium hover:text-[#E02424] transition-colors break-all">
+                info<span className="text-[#E02424]">@</span>rostra.in
               </a>
             </div>
 
@@ -119,18 +129,22 @@ const Footer: React.FC = () => {
 
         {/* Bottom Bar */}
         <div className="pt-12 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-6">
-          <div className="flex items-center gap-3 grayscale opacity-50">
-            <div className="w-6 h-6 rounded-full bg-white flex items-center justify-center p-1">
-              <svg viewBox="0 0 100 100" className="w-full h-full fill-black">
-                <path d="M50 15c-19.3 0-35 15.7-35 35s15.7 35 35 35 35-15.7 35-35-15.7-35-35-35zm0 10c13.8 0 25 11.2 25 25s-11.2 25-25 25-25-11.2-25-25 11.2-25 25-25zm-5 10l-10 10 10 10 10-10-10-10z" />
-              </svg>
+          <div className="flex items-center gap-3 grayscale opacity-70 transition-opacity hover:opacity-100">
+            <div className="w-12 h-12 rounded-full bg-white flex items-center justify-center p-0">
+              <img src="/logo.png" alt="Rostra Logo" className="w-full h-full object-contain scale-[2]" />
             </div>
             <span className="text-[13px] font-bold tracking-tight">rostra <span className="text-white/40">agency</span></span>
           </div>
 
-          <p className="text-[11px] md:text-xs text-white/20 font-medium tracking-wider">
-            Copyright © Rostra Web Design and Development, 2025
-          </p>
+          <div className="flex flex-col md:flex-row items-center gap-4 md:gap-8">
+            <div className="flex gap-4">
+              <a href="#privacy" className="text-[10px] uppercase tracking-widest text-white/20 hover:text-white transition-colors">Privacy Policy</a>
+              <a href="#terms" className="text-[10px] uppercase tracking-widest text-white/20 hover:text-white transition-colors">Terms & Conditions</a>
+            </div>
+            <p className="text-[11px] md:text-xs text-white/20 font-medium tracking-wider">
+              Copyright © Rostra Web Design and Development, 2025
+            </p>
+          </div>
         </div>
       </div>
     </footer>

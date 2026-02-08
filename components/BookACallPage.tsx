@@ -18,14 +18,28 @@ const BookACallPage: React.FC = () => {
     const [isSuccess, setIsSuccess] = useState(false);
     const [error, setError] = useState<string | null>(null);
 
+    const validateEmail = (email: string) => {
+        return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+    };
+
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
+
+        if (!validateEmail(formData.email)) {
+            setError("Please enter a valid email address.");
+            return;
+        }
+
         setIsSubmitting(true);
         setError(null);
 
         try {
             await addDoc(collection(db, 'bookings'), {
-                ...formData,
+                name: formData.name.trim(),
+                email: formData.email.trim(),
+                company: formData.company.trim(),
+                projectType: formData.projectType,
+                message: formData.message.trim(),
                 timestamp: serverTimestamp()
             });
             setIsSuccess(true);
@@ -48,7 +62,7 @@ const BookACallPage: React.FC = () => {
 
     return (
         <InternalPageLayout>
-            <section className="pt-48 pb-64 px-[clamp(24px,5vw,64px)]">
+            <section>
                 <div className="max-w-[1200px] mx-auto">
                     <div className="mb-24">
                         <motion.div
@@ -111,8 +125,7 @@ const BookACallPage: React.FC = () => {
                             <div className="bg-white/5 p-8 rounded-2xl border border-white/10">
                                 <span className="text-white/20 text-[11px] font-bold uppercase tracking-[0.3em] block mb-2">Our location</span>
                                 <p className="text-white/60">
-                                    Dubai Knowledge Park, Block 2B<br />
-                                    Dubai, UAE
+                                    Delhi, India
                                 </p>
                             </div>
                         </motion.div>

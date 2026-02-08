@@ -29,7 +29,7 @@ const Step: React.FC<{
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-100px" }}
       transition={{ duration: 0.8, delay: index * 0.1, ease: [0.22, 1, 0.36, 1] }}
-      className="grid grid-cols-1 lg:grid-cols-[160px_1fr_160px] gap-8 py-16 border-b border-white/5 last:border-0"
+      className="grid grid-cols-1 lg:grid-cols-[160px_1fr_160px] gap-8 py-12 border-b border-white/5 last:border-0"
     >
       {/* Left: Step Pill */}
       <div className="flex items-start">
@@ -125,7 +125,7 @@ const ProcessSection: React.FC = () => {
   ];
 
   return (
-    <section className="relative bg-[rgb(17,17,17)] text-white z-40 overflow-hidden pb-16">
+    <section id="process" className="relative bg-[rgb(17,17,17)] text-white z-40 overflow-hidden pb-0">
       {/* 1. Moving Category Strip (Top) - Exactly matching StatsAndIntro styling */}
       <div className="w-full h-[56px] md:h-[72px] bg-[rgb(28,28,28)] border-y border-white/5 relative overflow-hidden flex items-center mb-24">
         <motion.div
@@ -151,7 +151,7 @@ const ProcessSection: React.FC = () => {
         </motion.div>
       </div>
 
-      <div className="max-w-[1200px] mx-auto px-[48px]">
+      <div className="max-w-[1200px] mx-auto px-6 md:px-[48px]">
         {/* Header Block */}
         <div className="mb-20">
           <motion.div

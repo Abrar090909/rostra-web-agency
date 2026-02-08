@@ -3,10 +3,12 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const MarqueeItem: React.FC = () => (
-  <div className="flex items-center gap-[24px] px-[12px] h-full whitespace-nowrap">
+  <div className="flex items-center gap-[40px] px-[20px] h-full whitespace-nowrap">
     <span className="text-[#E02424] font-medium text-[15px] md:text-[18px] tracking-[0.02em]">2+ YEARS OF DELIVERY</span>
     <span className="text-[#E5E5E5] text-lg">✳</span>
-    <span className="text-[#E02424] font-medium text-[15px] md:text-[18px] tracking-[0.02em]">TRUSTED BY PARTNERS</span>
+    <span className="text-[#E02424] font-medium text-[15px] md:text-[18px] tracking-[0.02em]">TRUSTED BY PARTNER</span>
+    <span className="text-[#E5E5E5] text-lg">✳</span>
+    <span className="text-[#E02424] font-medium text-[15px] md:text-[18px] tracking-[0.02em]">EXPERT DESIGN & HIGH PERFORMANCE</span>
     <span className="text-[#E5E5E5] text-lg">✳</span>
   </div>
 );
@@ -42,7 +44,7 @@ const StatsAndIntro: React.FC = () => {
       </div>
 
       {/* 2. Main Text Block & Inline CTA */}
-      <div className="max-w-[1200px] mx-auto px-[clamp(24px,5vw,64px)] pt-[96px] pb-[96px]">
+      <div className="max-w-[1200px] mx-auto px-6 md:px-12 pt-16 md:pt-24 pb-16 md:pb-24">
         <div className="flex flex-col md:flex-row md:items-center gap-10 md:gap-16">
           {/* Text Content */}
           <div className="max-w-[840px]">
@@ -51,7 +53,7 @@ const StatsAndIntro: React.FC = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
-              className="text-[38px] md:text-[54px] font-medium leading-[1.25] tracking-tightest"
+              className="text-[32px] md:text-[54px] font-medium leading-[1.2] md:leading-[1.25] tracking-tightest"
             >
               <span className="text-white/45 block">we design systems that</span>
               <span className="text-white">feel intentional, perform flawlessly,</span>

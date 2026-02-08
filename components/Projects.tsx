@@ -5,12 +5,11 @@ import { motion } from 'framer-motion';
 const ProjectCard: React.FC<{
   title: string;
   category: string;
-  date: string;
   service: string;
   image: string;
   delay: number;
   size: 'large' | 'small'
-}> = ({ title, category, date, service, image, delay, size }) => (
+}> = ({ title, category, service, image, delay, size }) => (
   <motion.div
     initial={{ opacity: 0, y: 20 }}
     whileInView={{ opacity: 1, y: 0 }}
@@ -27,7 +26,6 @@ const ProjectCard: React.FC<{
         <span className="text-white/75">{category}</span>
         <span className="text-[#ff3b3b] font-bold">{' }'}</span>
       </div>
-      <span className="text-[#9a9a9a] text-[13px] font-normal">{date}</span>
     </div>
 
     {/* Project Titles */}
@@ -84,7 +82,7 @@ const ViewAllTile: React.FC<{ size: 'large' | 'small' }> = ({ size }) => (
 const Projects: React.FC = () => {
   return (
     <section id="projects" className="bg-[rgb(17,17,17)] text-white pt-[96px] pb-[120px] relative z-20">
-      <div className="max-w-[1200px] mx-auto px-[48px]">
+      <div className="max-w-[1200px] mx-auto px-6 md:px-[48px]">
         {/* Header - Moved to the right */}
         <div className="mb-20 text-right">
           <motion.div
@@ -103,57 +101,52 @@ const Projects: React.FC = () => {
           </motion.div>
         </div>
 
-        {/* ROW 1: 3 BOXES (FIXED GRID) */}
-        <div className="grid grid-cols-1 md:grid-cols-[2fr_2fr_1.5fr] gap-[32px] md:h-[420px]">
-          <ProjectCard
-            title="OLYMP Olive Oil"
-            category="Agriculture"
-            date="6/20/24"
-            service="Website Design"
-            image="https://images.unsplash.com/photo-1474978528675-4a50a4508dc3?q=80&w=800&auto=format&fit=crop"
-            delay={0.1}
-            size="large"
-          />
-          <ProjectCard
-            title="Les Snoros"
-            category="Food"
-            date="7/13/24"
-            service="Web design & Web development"
-            image="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?q=80&w=800&auto=format&fit=crop"
-            delay={0.2}
-            size="large"
-          />
-          <ProjectCard
-            title="Glow Rituals"
-            category="Beauty & Wellness"
-            date="10/12/24"
-            service="Digital Brand Experience"
-            image="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?q=80&w=800&auto=format&fit=crop"
-            delay={0.3}
-            size="large"
-          />
+        {/* ROW 1: 2 BOXES */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-[32px] md:h-[420px]">
+          <div onClick={() => window.open('https://pulse8gym.com/', '_blank')} className="contents">
+            <ProjectCard
+              title="Pulse8 Gym"
+              category="Fitness"
+              service="Full Brand Website"
+              image="https://images.unsplash.com/photo-1540497077202-7c8a3999166f?q=80&w=1200&auto=format&fit=crop"
+              delay={0.1}
+              size="large"
+            />
+          </div>
+          <div onClick={() => window.open('https://florianhurelhaircouture.com/', '_blank')} className="contents">
+            <ProjectCard
+              title="Florian Hurel"
+              category="Beauty & Wellness"
+              service="Luxury Brand Experience"
+              image="https://images.unsplash.com/photo-1560066984-138dadb4c035?q=80&w=1200&auto=format&fit=crop"
+              delay={0.2}
+              size="large"
+            />
+          </div>
         </div>
 
-        {/* ROW 2: 3 BOXES (FIXED GRID ALIGNED WITH ROW 1) */}
-        <div className="grid grid-cols-1 md:grid-cols-[2fr_2fr_1.5fr] gap-[32px] md:h-[320px] mt-[32px]">
-          <ProjectCard
-            title="Gym World"
-            category="Fitness"
-            date="5/31/24"
-            service="E-commerce Experience"
-            image="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?q=80&w=800&auto=format&fit=crop"
-            delay={0.4}
-            size="small"
-          />
-          <ProjectCard
-            title="Essense Restaurant"
-            category="Hospitality"
-            date="8/8/24"
-            service="Web design & Web development"
-            image="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&w=800&auto=format&fit=crop"
-            delay={0.5}
-            size="small"
-          />
+        {/* ROW 2: 3 BOXES */}
+        <div className="grid grid-cols-1 md:grid-cols-[1fr_1fr_1.5fr] gap-[32px] md:h-[320px] mt-[32px]">
+          <div onClick={() => window.open('https://lagompatisserie.com/', '_blank')} className="contents">
+            <ProjectCard
+              title="Lagom Patisserie"
+              category="Cakes & Bakery"
+              service="E-commerce Experience"
+              image="https://images.unsplash.com/photo-1555507036-ab1f4038808a?q=80&w=1200&auto=format&fit=crop"
+              delay={0.4}
+              size="small"
+            />
+          </div>
+          <div onClick={() => window.open('https://www.embarkperfumes.com/', '_blank')} className="contents">
+            <ProjectCard
+              title="Embark Perfumes"
+              category="Lifestyle"
+              service="Digital Identity"
+              image="https://images.unsplash.com/photo-1541643600914-78b084683601?q=80&w=1200&auto=format&fit=crop"
+              delay={0.5}
+              size="small"
+            />
+          </div>
           <ViewAllTile size="small" />
         </div>
       </div>

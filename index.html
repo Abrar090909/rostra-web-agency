@@ -1,66 +1,69 @@
-
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rostra | Digital Agency</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        html.lenis, html.lenis body {
-          height: auto;
-        }
-        .lenis.lenis-smooth {
-          scroll-behavior: auto !important;
-        }
-        .lenis.lenis-smooth [data-lenis-prevent] {
-          overscroll-behavior: contain;
-        }
-        .lenis.lenis-stopped {
-          overflow: hidden;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/jpeg" href="/favicon.jpg">
+  <title>Rostra | Digital Agency</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    html.lenis,
+    html.lenis body {
+      height: auto;
+    }
 
-        body {
-            font-family: 'Manrope', sans-serif;
-            background-color: #fcfcfc;
-            color: #1a1a1a;
-            overflow-x: hidden;
-            -webkit-font-smoothing: antialiased;
-        }
+    .lenis.lenis-smooth {
+      scroll-behavior: auto !important;
+    }
 
-        .hero-bg-gradient {
-            background: radial-gradient(
-                80% 60% at 50% 20%,
-                rgba(0, 0, 0, 0.04),
-                transparent
-            );
-        }
+    .lenis.lenis-smooth [data-lenis-prevent] {
+      overscroll-behavior: contain;
+    }
 
-        .tracking-tightest {
-            letter-spacing: -0.04em;
-        }
+    .lenis.lenis-stopped {
+      overflow: hidden;
+    }
 
-        .capsule-shadow {
-            box-shadow: 
-                0 8px 20px rgba(0, 0, 0, 0.06),
-                inset 0 1px 0 rgba(255, 255, 255, 0.6);
-        }
+    body {
+      font-family: 'Manrope', sans-serif;
+      background-color: #fcfcfc;
+      color: #1a1a1a;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
 
-        .red-capsule-shadow {
-            box-shadow: 0 10px 24px rgba(224, 36, 36, 0.35);
-        }
+    .hero-bg-gradient {
+      background: radial-gradient(80% 60% at 50% 20%,
+          rgba(0, 0, 0, 0.04),
+          transparent);
+    }
 
-        /* Headline: 38px Mobile -> 56px Tablet -> 72px Desktop */
-        .headline-text {
-            font-size: clamp(2.375rem, 5.5vw, 4.5rem); 
-            line-height: 1.1;
-        }
-    </style>
-<script type="importmap">
+    .tracking-tightest {
+      letter-spacing: -0.04em;
+    }
+
+    .capsule-shadow {
+      box-shadow:
+        0 8px 20px rgba(0, 0, 0, 0.06),
+        inset 0 1px 0 rgba(255, 255, 255, 0.6);
+    }
+
+    .red-capsule-shadow {
+      box-shadow: 0 10px 24px rgba(224, 36, 36, 0.35);
+    }
+
+    /* Headline: 38px Mobile -> 56px Tablet -> 72px Desktop */
+    .headline-text {
+      font-size: clamp(2.375rem, 5.5vw, 4.5rem);
+      line-height: 1.1;
+    }
+  </style>
+  <script type="importmap">
 {
   "imports": {
     "react/": "https://esm.sh/react@^19.2.4/",
@@ -72,10 +75,12 @@
   }
 }
 </script>
-<link rel="stylesheet" href="/index.css">
+  <link rel="stylesheet" href="/index.css">
 </head>
+
 <body>
-    <div id="root"></div>
-<script type="module" src="/index.tsx"></script>
+  <div id="root"></div>
+  <script type="module" src="/index.tsx"></script>
 </body>
+
 </html>

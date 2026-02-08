@@ -14,53 +14,96 @@ const QuoteIcon: React.FC = () => (
   </svg>
 );
 
-const TestimonialCard: React.FC<{ quote: string; index: number }> = ({ quote, index }) => (
-  <motion.div
-    initial={{ opacity: 0, y: 40 }}
-    whileInView={{ opacity: 1, y: 0 }}
-    viewport={{ once: true }}
-    transition={{ duration: 0.8, delay: index * 0.15, ease: [0.22, 1, 0.36, 1] }}
-    className="relative flex flex-col bg-white/[0.03] border border-white/10 rounded-[24px] p-8 md:p-10 min-h-[320px] justify-between group"
-  >
+const TestimonialCard: React.FC<{ quote: string; author: string; company: string; rating: string; index: number }> = ({ quote, author, company, rating, index }) => (
+  <div className="flex-shrink-0 w-[300px] md:w-[380px] h-[280px] bg-white/[0.03] border border-white/10 rounded-[24px] p-6 flex flex-col justify-between group mx-3">
     <div className="flex justify-between items-start">
-      <div className="flex flex-col gap-2">
-        <span className="text-white/40 text-[11px] font-bold tracking-widest">5.0 / 5</span>
+      <div className="flex flex-col gap-1.5">
+        <span className="text-white/40 text-[10px] font-bold tracking-widest">{rating} / 5</span>
         <div className="flex gap-1">
           {[...Array(5)].map((_, i) => <StarIcon key={i} />)}
         </div>
       </div>
-      <QuoteIcon />
+      <div className="scale-75 opacity-50">
+        <QuoteIcon />
+      </div>
     </div>
-    <p className="text-[17px] md:text-[19px] leading-relaxed text-white/80 font-normal">
-      {quote}
-    </p>
-  </motion.div>
+
+    <div className="flex-1 flex flex-col justify-center py-4">
+      <p className="text-[14px] md:text-[15px] leading-relaxed text-white/70 font-normal italic">
+        "{quote}"
+      </p>
+    </div>
+
+    <div className="mt-2 pt-4 border-t border-white/5">
+      <div className="flex items-center gap-2">
+        <p className="text-white font-medium text-[13px]">{author}</p>
+        <span className="px-2 py-0.5 rounded-full border border-[#E02424]/30 text-[#E02424] text-[8px] font-bold uppercase tracking-tighter bg-[#E02424]/5">
+          {company}
+        </span>
+      </div>
+    </div>
+  </div>
 );
 
 const Testimonials: React.FC = () => {
   const testimonials = [
-    "Their design thinking is top-notch. Every element on our site now feels intentional and elegant. Clients always compliment the UI!",
-    "Rostra understood our brand in ways we hadn't even imagined. The UI is sleek, fast, and makes our app stand out in a crowded market.",
-    "From wireframes to final build, the Rostra team was insanely detail-oriented. Our bounce rate dropped by 42% after the redesign!",
-    "They gave us more than just a website — they gave us a digital identity. The site is incredibly responsive and the aesthetics are on point!"
+    {
+      quote: "Rostra helped us build a strong digital presence that truly reflects our brand. The new website and marketing strategy noticeably increased inquiries and walk-ins.",
+      author: "Ashwin Sahu",
+      company: "Pulse8 Gym",
+      rating: "4.7"
+    },
+    {
+      quote: "Rostra created a clean and trustworthy digital experience for our clinic. We saw an increase in patient inquiries soon after the website went live.",
+      author: "Dr. Neha Singh",
+      company: "D C Z",
+      rating: "4.7"
+    },
+    {
+      quote: "Rostra gave our brand a professional online identity that matched the quality of our products. The improved website structure helped boost orders and visibility.",
+      author: "Tazeem Kapadia",
+      company: "Lagom",
+      rating: "4.8"
+    },
+    {
+      quote: "Rostra crafted a stylish and inviting digital presence that perfectly captured our salon's vibe. The new website made it easier for clients to explore our services.",
+      author: "Florian Hurel",
+      company: "Florian Hurel HairLand",
+      rating: "5.0"
+    },
+    {
+      quote: "From branding to execution, Rostra delivered exactly what we needed. Our online presence now feels premium, consistent, and far more engaging for customers.",
+      author: "Sananda Basak",
+      company: "MAGS",
+      rating: "4.9"
+    },
+    {
+      quote: "Rostra transformed our digital presence into something elegant and brand-aligned. The result was better visibility and stronger customer trust.",
+      author: "Varsha Dalal",
+      company: "Embark Perfumes",
+      rating: "4.8"
+    }
   ];
 
+  // Double the array for seamless marquee loop
+  const marqueeItems = [...testimonials, ...testimonials];
+
   return (
-    <section className="relative z-30 bg-[rgb(17,17,17)] pt-48 pb-64 -mt-12">
-      {/* Visual Mask: Pulling the section up slightly to hide card bottoms from the CardSwap above */}
+    <section id="testimonials" className="relative z-30 bg-[rgb(17,17,17)] pt-48 pb-64 -mt-12 overflow-hidden">
+      {/* Visual Mask */}
       <div className="absolute top-0 left-0 w-full h-48 bg-gradient-to-t from-[rgb(17,17,17)] via-[rgb(17,17,17)] to-transparent pointer-events-none" />
-      
-      <div className="max-w-[1400px] mx-auto px-[48px] relative z-10">
+
+      <div className="w-full relative z-10">
         {/* Centered Header Section */}
-        <div className="text-center mb-24 flex flex-col items-center">
+        <div className="max-w-[1400px] mx-auto text-center mb-16 flex flex-col items-center px-6">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="flex items-center gap-2 mb-8"
+            className="flex items-center gap-2 mb-6"
           >
-            <div className="w-2 h-2 rounded-full bg-[#E02424]" />
-            <span className="text-white/40 text-[12px] font-medium tracking-[0.2em] uppercase">
+            <div className="w-1.5 h-1.5 rounded-full bg-[#E02424]" />
+            <span className="text-white/40 text-[11px] font-medium tracking-[0.2em] uppercase">
               {'{04}'} — Testimonials
             </span>
           </motion.div>
@@ -70,31 +113,34 @@ const Testimonials: React.FC = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
-            className="text-[clamp(44px,7vw,96px)] font-medium text-white tracking-tightest leading-[1.05] mb-8"
+            className="text-[clamp(36px,5vw,72px)] font-medium text-white tracking-tightest leading-[1.1]"
           >
             Don't take our<br />
             word for it<span className="text-[#E02424]">*</span>
           </motion.h2>
-
-          <motion.div
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.5 }}
-            className="flex items-center gap-2"
-          >
-            <span className="text-[#E02424] text-lg">*</span>
-            <span className="text-[#E02424] text-[13px] font-bold uppercase tracking-[0.2em] cursor-pointer hover:opacity-80 transition-opacity">
-              Take theirs
-            </span>
-          </motion.div>
         </div>
 
-        {/* Testimonials Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {testimonials.map((quote, i) => (
-            <TestimonialCard key={i} quote={quote} index={i} />
-          ))}
+        {/* Marquee Wrapper */}
+        <div className="relative flex overflow-hidden group">
+          <motion.div
+            animate={{
+              x: [0, -1920], // Adjusted for card width * count
+            }}
+            transition={{
+              duration: 40,
+              repeat: Infinity,
+              ease: "linear",
+            }}
+            className="flex hover:[animation-play-state:paused]"
+          >
+            {marqueeItems.map((item, i) => (
+              <TestimonialCard key={i} {...item} index={i} />
+            ))}
+          </motion.div>
+
+          {/* Edge Fades */}
+          <div className="absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-[rgb(17,17,17)] to-transparent z-10 pointer-events-none" />
+          <div className="absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-[rgb(17,17,17)] to-transparent z-10 pointer-events-none" />
         </div>
       </div>
     </section>
