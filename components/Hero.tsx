@@ -163,7 +163,7 @@ const Hero: React.FC = () => {
   const containerRef = useRef(null);
 
   return (
-    <section id="home" ref={containerRef} className="relative w-full pt-20 pb-16 px-6 md:px-8 bg-[#fcfcfc] overflow-hidden flex flex-col items-center">
+    <section id="home" ref={containerRef} className="relative w-full pt-32 pb-16 px-6 md:px-8 bg-[#fcfcfc] overflow-hidden flex flex-col items-center">
 
       {/* --- Background Patterns & Texture --- */}
 
@@ -208,19 +208,32 @@ const Hero: React.FC = () => {
 
       {/* 1. Main Headline Section */}
       <div className="max-w-[1200px] mx-auto text-center relative z-10 mb-12">
-        <motion.div
-          initial={{ opacity: 0, scale: 0.8 }}
-          animate={{ opacity: 1, scale: 1 }}
-          whileHover={{ scale: 1.05 }}
-          transition={{ delay: 0.1 }}
-          className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-neutral-50 border border-neutral-100 text-neutral-600 text-xs font-bold uppercase tracking-widest mb-8 cursor-pointer shadow-sm hover:shadow-md transition-shadow"
-        >
-          <span className="relative flex h-2 w-2">
-            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
-            <span className="relative inline-flex rounded-full h-2 w-2 bg-[#E02424]"></span>
-          </span>
-          Available for new projects
-        </motion.div>
+        <div className="flex flex-col md:flex-row items-center justify-center gap-3 mb-8">
+          <motion.div
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            whileHover={{ scale: 1.05 }}
+            transition={{ delay: 0.1 }}
+            className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-neutral-50 border border-neutral-100 text-neutral-600 text-xs font-bold uppercase tracking-widest cursor-pointer shadow-sm hover:shadow-md transition-shadow"
+          >
+            <span className="relative flex h-2 w-2">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-[#E02424]"></span>
+            </span>
+            Available for new projects
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            whileHover={{ scale: 1.05 }}
+            transition={{ delay: 0.2 }}
+            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#E02424] text-white text-[10px] font-bold uppercase tracking-widest cursor-default shadow-[0_5px_15px_rgba(224,36,36,0.3)]"
+          >
+            <i className="fa-solid fa-circle-check text-[10px]"></i>
+            Pay after the work is done
+          </motion.div>
+        </div>
 
         {/* Updated Headline with Inline Elements */}
         <motion.h1
@@ -297,8 +310,6 @@ const Hero: React.FC = () => {
         <FloatingSticker icon="fa-brands fa-figma" color="text-black" rotate={-8} className="-top-12 -right-4 md:-right-16" delay={0.6} />
         <FloatingSticker icon="fa-solid fa-bolt" color="text-[#E02424]" rotate={12} className="-top-8 -left-4 md:-left-12" delay={0.7} />
         <FloatingSticker icon="fa-solid fa-code" color="text-neutral-700" rotate={-5} className="top-[40%] -left-8 md:-left-20" delay={0.8} />
-
-        <StickyNote text="Launch this friday 🚀" className="bottom-[15%] -right-8 md:-right-20" rotate={-3} />
 
         {/* Main Window */}
         <div className="relative bg-white rounded-xl shadow-[0_30px_80px_-20px_rgba(0,0,0,0.15)] border border-neutral-200 overflow-hidden">
