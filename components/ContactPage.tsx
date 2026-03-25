@@ -101,10 +101,10 @@ const ContactPage: React.FC = () => {
               <div className="mb-16">
                 <span className="text-white/20 text-[11px] font-bold uppercase tracking-[0.3em] block mb-4">Email us</span>
                 <a
-                  href="mailto:info@rostra.in"
+                  href="mailto:contact@rostra.in"
                   className="text-[clamp(24px,3vw,44px)] font-medium hover:text-[#E02424] transition-colors break-all leading-tight"
                 >
-                  info<span className="text-[#E02424]">@</span>rostra.in
+                  contact<span className="text-[#E02424]">@</span>rostra.in
                 </a>
               </div>
 

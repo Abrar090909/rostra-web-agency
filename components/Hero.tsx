@@ -163,7 +163,7 @@ const Hero: React.FC = () => {
   const containerRef = useRef(null);
 
   return (
-    <section id="home" ref={containerRef} className="relative w-full pt-32 pb-24 px-6 md:px-8 bg-[#fcfcfc] overflow-hidden flex flex-col items-center">
+    <section id="home" ref={containerRef} className="relative w-full pt-20 pb-16 px-6 md:px-8 bg-[#fcfcfc] overflow-hidden flex flex-col items-center">
 
       {/* --- Background Patterns & Texture --- */}
 
@@ -207,7 +207,7 @@ const Hero: React.FC = () => {
 
 
       {/* 1. Main Headline Section */}
-      <div className="max-w-[1200px] mx-auto text-center relative z-10 mb-16">
+      <div className="max-w-[1200px] mx-auto text-center relative z-10 mb-12">
         <motion.div
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
@@ -227,16 +227,14 @@ const Hero: React.FC = () => {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-          className="text-[clamp(2.5rem,5.5vw,5rem)] font-bold tracking-tight leading-[1.2] text-neutral-900 mb-8 max-w-[1100px] mx-auto"
+          className="text-[clamp(2rem,4.5vw,3.8rem)] font-bold tracking-tight leading-[1.2] text-neutral-900 mb-6 max-w-[1100px] mx-auto"
         >
-          Iconic
+          Web Design
           <InlineBrowser />
-          Websites, <br className="hidden md:block" />
-
-          Bold Strategies, &
+          , Digital Marketing
           <InlineApp />
-          Limitless <span className="relative inline-block text-[#E02424]">
-            Growth
+          & <span className="relative inline-block text-[#E02424]">
+            Growth Strategies
             <svg className="absolute -bottom-1 md:-bottom-2 left-0 w-full h-[12px] md:h-[18px] pointer-events-none overflow-visible" viewBox="0 0 100 20" preserveAspectRatio="none">
               <motion.path
                 d="M5,15 Q30,5 50,15 T95,10"
@@ -260,16 +258,16 @@ const Hero: React.FC = () => {
                 transition={{ duration: 0.8, delay: 1.2, ease: "easeInOut" }}
               />
             </svg>
-          </span>.
+          </span> That Turn Clicks Into Customers
         </motion.h1>
 
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="text-lg md:text-2xl text-neutral-500 font-medium max-w-[680px] mx-auto leading-relaxed mb-10"
+          className="text-lg md:text-2xl text-neutral-500 font-medium max-w-[800px] mx-auto leading-relaxed mb-8"
         >
-          Rostra is the digital agency that turns <span className="text-neutral-900 font-bold decoration-red-100 decoration-2 underline-offset-2">browsers</span> into <span className="text-neutral-900 font-bold decoration-red-100 decoration-2 underline-offset-2">buyers</span> with bold design & flawless code.
+          Rostra is a growth-focused digital marketing agency helping businesses generate leads, improve conversions, and build a strong online presence through performance-driven digital solutions.
         </motion.p>
 
         <motion.div
@@ -293,7 +291,7 @@ const Hero: React.FC = () => {
         initial={{ opacity: 0, y: 40 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1, delay: 0.4, ease: "easeOut" }}
-        className="relative w-full max-w-[1000px] mx-auto z-20 mb-24"
+        className="relative w-full max-w-[1000px] mx-auto z-20 mb-16"
       >
         {/* Fun Elements - Draggable Stickers & Notes */}
         <FloatingSticker icon="fa-brands fa-figma" color="text-black" rotate={-8} className="-top-12 -right-4 md:-right-16" delay={0.6} />
@@ -500,8 +498,8 @@ const Hero: React.FC = () => {
         transition={{ duration: 0.8 }}
         className="text-center w-full max-w-[1200px]"
       >
-        <h3 className="text-xl md:text-2xl font-bold text-neutral-900 mb-2">The tech powering our high-performance solutions</h3>
-        <p className="text-neutral-500 text-sm md:text-base mb-10 max-w-[600px] mx-auto">We utilize a modern startup tech stack to ensure your project is built for scale, speed, and long-term maintainability.</p>
+        <h3 className="text-xl md:text-2xl font-bold text-neutral-900 mb-2">The strategy and technology behind high-performance digital growth</h3>
+        <p className="text-neutral-500 text-sm md:text-base mb-6 max-w-[800px] mx-auto">We blend modern technology with data-driven digital marketing to build fast, scalable online experiences that increase visibility, drive engagement, and convert visitors into customers.</p>
 
         {/* Logo Grid - Tech Stack Oriented */}
         <div className="flex flex-wrap justify-center items-center gap-10 md:gap-14 px-4 overflow-hidden">

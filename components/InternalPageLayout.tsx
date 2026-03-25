@@ -27,7 +27,7 @@ const InternalPageLayout: React.FC<InternalPageLayoutProps> = ({ children }) => 
       </div>
 
       <motion.div
-        className="pt-40 md:pt-48 px-8 md:px-24 lg:px-32 pb-64"
+        className="pt-32 md:pt-36 px-8 md:px-24 lg:px-32 pb-20"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.8 }}

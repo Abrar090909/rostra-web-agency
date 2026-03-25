@@ -32,7 +32,7 @@ const DigitalMarketingPage: React.FC = () => {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8 }}
-                    className="mb-20"
+                    className="mb-12"
                 >
                     <span className="text-[#E02424] text-[12px] uppercase tracking-[0.3em] font-bold block mb-4">Service — 04</span>
                     <h1 className="text-[clamp(40px,7vw,100px)] font-bold tracking-tightest leading-none text-white mb-8">
@@ -47,7 +47,7 @@ const DigitalMarketingPage: React.FC = () => {
                     initial={{ opacity: 0, scale: 0.95 }}
                     animate={{ opacity: 1, scale: 1 }}
                     transition={{ duration: 1, delay: 0.2 }}
-                    className="w-full aspect-[21/9] rounded-[40px] overflow-hidden mb-20 border border-white/5"
+                    className="w-full aspect-[21/9] rounded-[40px] overflow-hidden mb-12 border border-white/5"
                 >
                     <img
                         src="/images/services/marketing.png"
@@ -56,7 +56,7 @@ const DigitalMarketingPage: React.FC = () => {
                     />
                 </motion.div>
 
-                <div className="grid lg:grid-cols-[1fr_400px] gap-20">
+                <div className="grid lg:grid-cols-[1fr_400px] gap-12">
                     <div className="flex flex-col">
                         <h2 className="text-xs font-bold uppercase tracking-[0.2em] text-[#E02424] mb-8">Top services to list:</h2>
                         <div className="flex flex-col">
@@ -71,9 +71,19 @@ const DigitalMarketingPage: React.FC = () => {
                         <p className="text-white/40 mb-8 leading-relaxed">
                             We focus on the metrics that matter, bringing your brand to the forefront of the digital conversation.
                         </p>
-                        <a href="#contact" className="inline-flex items-center justify-center w-full py-4 bg-[#E02424] text-white rounded-2xl font-bold uppercase text-[12px] tracking-widest hover:bg-[#c51f1f] transition-colors">
-                            Contact Us
-                        </a>
+                        <motion.button
+                            onClick={() => window.location.hash = '#book-a-call'}
+                            whileHover={{ scale: 1.02, backgroundColor: '#c51f1f' }}
+                            whileTap={{ scale: 0.98 }}
+                            className="bg-[#E02424] text-white px-8 py-4 rounded-full flex items-center justify-center gap-3 group transition-all shadow-[0_10px_30px_rgba(224,36,36,0.3)] w-full"
+                        >
+                            <span className="text-sm font-bold uppercase tracking-widest">Book a call</span>
+                            <div className="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="rotate-45">
+                                    <path d="M12 5V19M5 12l7-7 7 7" />
+                                </svg>
+                            </div>
+                        </motion.button>
                     </div>
                 </div>
             </div>

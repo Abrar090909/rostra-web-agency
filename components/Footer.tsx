@@ -8,7 +8,7 @@ const Footer: React.FC = () => {
   };
 
   return (
-    <footer className="relative bg-[rgb(10,10,10)] text-white pt-24 pb-12 overflow-hidden z-50">
+    <footer className="relative bg-[rgb(10,10,10)] text-white pt-12 pb-12 overflow-hidden z-50">
       {/* Subtle Geometric Background Patterns */}
       <div className="absolute inset-0 pointer-events-none opacity-[0.03]">
         <svg width="100%" height="100%" viewBox="0 0 1440 800" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -20,7 +20,7 @@ const Footer: React.FC = () => {
 
       <div className="max-w-[1400px] mx-auto px-8 md:px-12 relative z-10">
         {/* Top Bar */}
-        <div className="flex justify-between items-center mb-24">
+        <div className="flex justify-between items-center mb-12">
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -49,7 +49,7 @@ const Footer: React.FC = () => {
         </div>
 
         {/* Main Content Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 lg:gap-32 mb-32">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 mb-16">
           {/* Left Column */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -57,8 +57,8 @@ const Footer: React.FC = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
           >
-            <h2 className="text-[clamp(40px,6vw,84px)] font-medium leading-[1.1] tracking-tightest mb-8">
-              Let's create something extraordinary together<span className="text-[#E02424]">.</span>
+            <h2 className="text-[clamp(32px,4.5vw,64px)] font-medium leading-[1.1] tracking-tightest mb-8 uppercase">
+              LET'S BUILD A DIGITAL PRESENCE THAT WORKS AS HARD AS YOU DO!<span className="text-[#E02424]"></span>
             </h2>
             <p className="text-white/30 text-[18px] md:text-[22px] font-normal tracking-tight">
               Let's make an impact.
@@ -78,7 +78,7 @@ const Footer: React.FC = () => {
                 <img src="/logo.png" alt="Rostra Logo" className="w-16 h-16 object-contain scale-[2]" />
               </div>
               <div className="flex flex-col">
-                <span className="text-lg font-semibold tracking-tight">Rostra agency</span>
+                <span className="text-lg font-semibold tracking-tight">Rostra Agency</span>
                 <div className="flex flex-col gap-1.5 mt-4 group/contact">
                   <a href="tel:+918603038778" className="text-sm text-white/60 hover:text-[#E02424] transition-colors flex items-center gap-2">
                     <span className="w-1 h-1 rounded-full bg-[#E02424]" />
@@ -90,7 +90,8 @@ const Footer: React.FC = () => {
                   </a>
                 </div>
                 <div className="flex gap-3 mt-3">
-                  <a href="#" className="opacity-30 hover:opacity-100 transition-opacity"><i className="fa-brands fa-instagram text-xs"></i></a>
+                    <a href="https://www.instagram.com/rostra_digitalagency?igsh=dnR6c2R4aWtwaGk1" target="_blank" rel="noopener noreferrer" className="opacity-30 hover:opacity-100 transition-opacity"><i className="fa-brands fa-instagram text-xs"></i></a>
+                  <a href="https://www.linkedin.com/company/rostramarketing/" target="_blank" rel="noopener noreferrer" className="opacity-30 hover:opacity-100 transition-opacity"><i className="fa-brands fa-linkedin text-xs"></i></a>
                   <a href="https://wa.me/918603038778?text=Hi%21%20I%27m%20interested%20in%20working%20with%20Rostra.%20Can%20we%20discuss%20a%20project%3F" target="_blank" rel="noopener noreferrer" className="opacity-30 hover:opacity-100 transition-opacity">
                     <i className="fa-brands fa-whatsapp text-xs"></i>
                   </a>
@@ -99,9 +100,9 @@ const Footer: React.FC = () => {
             </div>
 
             <div className="mb-10">
-              <span className="text-white/30 text-[11px] font-bold uppercase tracking-widest block mb-2">Contact me</span>
-              <a href="mailto:info@rostra.in" className="text-[clamp(20px,3vw,32px)] font-medium hover:text-[#E02424] transition-colors break-all">
-                info<span className="text-[#E02424]">@</span>rostra.in
+              <span className="text-white/30 text-[11px] font-bold uppercase tracking-widest block mb-2">Contact Us</span>
+              <a href="mailto:contact@rostra.in" className="text-[clamp(20px,3vw,32px)] font-medium hover:text-[#E02424] transition-colors break-all">
+                contact<span className="text-[#E02424]">@</span>rostra.in
               </a>
             </div>
 
@@ -129,11 +130,11 @@ const Footer: React.FC = () => {
 
         {/* Bottom Bar */}
         <div className="pt-12 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-6">
-          <div className="flex items-center gap-3 grayscale opacity-70 transition-opacity hover:opacity-100">
+          <div className="flex items-center gap-3 transition-opacity">
             <div className="w-12 h-12 rounded-full bg-white flex items-center justify-center p-0">
               <img src="/logo.png" alt="Rostra Logo" className="w-full h-full object-contain scale-[2]" />
             </div>
-            <span className="text-[13px] font-bold tracking-tight">rostra <span className="text-white/40">agency</span></span>
+            <span className="text-[13px] font-bold tracking-tight">Rostra <span className="text-white/40">Agency</span></span>
           </div>
 
           <div className="flex flex-col md:flex-row items-center gap-4 md:gap-8">

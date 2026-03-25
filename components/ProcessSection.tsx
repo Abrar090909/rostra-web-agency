@@ -79,55 +79,55 @@ const Step: React.FC<{
 const ProcessSection: React.FC = () => {
   const processSteps = [
     {
-      name: "Discovery",
+      name: "Strategy",
       number: "/01",
-      title: "We align on what you’re trying to build — and why it matters",
+      title: "We align on what you’re building — and how it drives real growth",
       bullets: [
-        "Understand your idea, product, or goal",
-        "Identify the real problem worth solving",
-        "Define scope, priorities, and success criteria"
+        "Understand your business goals, product vision, and target audience",
+        "Identify high-impact problems and conversion opportunities",
+        "Define clear scope, priorities, success metrics, and roadmap"
       ],
       timeline: "1–2 days"
     },
     {
       name: "Design",
       number: "/02",
-      title: "We shape the structure and visual direction",
+      title: "We design structure, flow, and visuals with intent",
       bullets: [
-        "Create wireframes to define layout and flow",
-        "Establish a consistent visual language",
-        "Build interactive prototypes for early feedback"
+        "Create wireframes focused on user journey and conversion flow",
+        "Develop a consistent, scalable visual identity",
+        "Build interactive prototypes to validate direction early"
       ],
       timeline: "2–3 days"
     },
     {
-      name: "Build",
+      name: "Development",
       number: "/03",
-      title: "We turn designs into a working product",
+      title: "We build fast, scalable, and performance-ready digital systems",
       bullets: [
-        "Implement the site with clean, scalable structure",
-        "Integrate content, assets, and interactions",
-        "Ensure responsiveness, performance, and basic SEO"
+        "Develop clean, scalable code using modern best practices",
+        "Integrate content, assets, interactions, and animations",
+        "Optimize for responsiveness, speed, accessibility, and SEO"
       ],
       timeline: "~5 days"
     },
     {
       name: "Launch",
       number: "/04",
-      title: "We ship, test, and make sure everything works as intended",
+      title: "We test, refine, and launch with confidence",
       bullets: [
-        "Test across devices and browsers",
-        "Fix edge cases and polish details",
-        "Deploy and go live with confidence"
+        "Test across devices, browsers, and screen sizes",
+        "Fix edge cases, polish details, and ensure stability",
+        "Deploy, go live, and support a smooth launch"
       ],
       timeline: "~7 days"
     }
   ];
 
   return (
-    <section id="process" className="relative bg-[rgb(17,17,17)] text-white z-40 overflow-hidden pb-0">
+    <section id="process" className="relative bg-[rgb(17,17,17)] text-white z-40 overflow-hidden pb-8 md:pb-12">
       {/* 1. Moving Category Strip (Top) - Exactly matching StatsAndIntro styling */}
-      <div className="w-full h-[56px] md:h-[72px] bg-[rgb(28,28,28)] border-y border-white/5 relative overflow-hidden flex items-center mb-24">
+      <div className="w-full h-[56px] md:h-[72px] bg-[rgb(28,28,28)] border-y border-white/5 relative overflow-hidden flex items-center mb-12">
         <motion.div
           className="flex"
           animate={{ x: [-1000, 0] }}
@@ -153,7 +153,7 @@ const ProcessSection: React.FC = () => {
 
       <div className="max-w-[1200px] mx-auto px-6 md:px-[48px]">
         {/* Header Block */}
-        <div className="mb-20">
+        <div className="mb-12">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -165,17 +165,30 @@ const ProcessSection: React.FC = () => {
               {'{03}'} — Process
             </span>
             <h2 className="text-[clamp(48px,8vw,72px)] font-medium tracking-tightest leading-none text-white mb-6">
-              How it works
+              Our Approach
             </h2>
           </motion.div>
         </div>
 
         {/* Steps List */}
-        <div className="flex flex-col">
+        <div className="flex flex-col mb-16">
           {processSteps.map((step, i) => (
             <Step key={step.name} {...step} index={i} />
           ))}
         </div>
+
+        {/* Closing Line */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+          className="text-center"
+        >
+          <p className="text-[18px] md:text-[24px] text-white font-medium leading-relaxed max-w-[800px] mx-auto">
+            Every step is designed to keep your brand perfectly positioned for performance — <span className="text-[#E02424]">from strategy to scale.</span>
+          </p>
+        </motion.div>
       </div>
     </section>
   );

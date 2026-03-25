@@ -11,7 +11,6 @@ import Testimonials from './components/Testimonials';
 import FAQ from './components/FAQ';
 import Footer from './components/Footer';
 import TermsConditionsPage from './components/TermsConditionsPage';
-import LoadingScreen from './components/LoadingScreen';
 import AboutPage from './components/AboutPage';
 import ProjectsPage from './components/ProjectsPage';
 import ContactPage from './components/ContactPage';
@@ -24,6 +23,8 @@ import BrandingCreativePage from './components/BrandingCreativePage';
 import LeadGenerationPage from './components/LeadGenerationPage';
 import DigitalMarketingPage from './components/DigitalMarketingPage';
 import AdvertisingPerformancePage from './components/AdvertisingPerformancePage';
+import LoadingScreen from './components/LoadingScreen';
+import WhatsAppButton from './components/WhatsAppButton';
 import { auth } from './firebase';
 import { onAuthStateChanged, User, signOut } from 'firebase/auth';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -179,13 +180,11 @@ const App: React.FC = () => {
 
   return (
     <>
-      <AnimatePresence mode="wait">
-        {isLoading && (
-          <LoadingScreen key="loader" onLoadingComplete={() => setIsLoading(false)} />
-        )}
-      </AnimatePresence>
+      {isLoading && currentView === 'home' && (
+        <LoadingScreen onLoadingComplete={() => setIsLoading(false)} />
+      )}
 
-      <div className={`relative min-h-screen selection:bg-red-600 selection:text-white bg-white transition-opacity duration-1000 ${isLoading ? 'opacity-0' : 'opacity-1'}`}>
+      <div className={`relative min-h-screen selection:bg-red-600 selection:text-white bg-white transition-opacity duration-1000 ${isLoading ? 'opacity-0' : 'opacity-100'}`}>
         <div className="fixed top-0 left-0 right-0 z-[2000] pointer-events-none">
           <AnimatePresence>
             {user && (
@@ -222,10 +221,10 @@ const App: React.FC = () => {
 
         <main className="relative z-10">
           {renderContent()}
-          {!isStandalonePage && currentView === 'home' && <div className="mt-20" />}
         </main>
 
         {!isStandalonePage && <Footer />}
+        <WhatsAppButton />
 
         <AuthModal
           isOpen={isAuthModalOpen}

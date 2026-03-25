@@ -17,33 +17,30 @@ const FAQItem: React.FC<FAQItemProps> = ({ index, question, answer, isOpen, onCl
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-      className="mb-4"
+      className="mb-4 last:mb-0"
     >
       <div
         onClick={onClick}
-        className={`group cursor-pointer bg-white border border-neutral-100 rounded-[20px] p-6 md:p-8 transition-all duration-300 ${
-          isOpen ? 'shadow-lg shadow-neutral-100/50 border-neutral-200' : 'hover:border-neutral-200 hover:shadow-sm'
-        }`}
+        className={`group cursor-pointer bg-white border border-neutral-100 rounded-[20px] p-6 md:p-8 transition-all duration-300 ${isOpen ? 'shadow-lg shadow-neutral-100/50 border-neutral-200' : 'hover:border-neutral-200 hover:shadow-sm'
+          }`}
       >
         <div className="flex items-center justify-between gap-6">
           <div className="flex items-center gap-6">
             <span className="text-neutral-300 font-light text-sm tracking-widest min-w-[24px]">
               {index}
             </span>
-            <h3 className={`text-lg md:text-xl font-medium tracking-tight transition-colors duration-300 ${
-              isOpen ? 'text-neutral-900' : 'text-neutral-800 group-hover:text-neutral-900'
-            }`}>
+            <h3 className={`text-lg md:text-xl font-medium tracking-tight transition-colors duration-300 ${isOpen ? 'text-neutral-900' : 'text-neutral-800 group-hover:text-neutral-900'
+              }`}>
               {question}
             </h3>
           </div>
-          
-          <div className={`shrink-0 w-10 h-10 rounded-full border flex items-center justify-center transition-all duration-300 ${
-            isOpen 
-              ? 'border-[#E02424] bg-[#E02424] text-white rotate-45' 
-              : 'border-neutral-200 text-neutral-400 group-hover:border-[#E02424] group-hover:text-[#E02424]'
-          }`}>
+
+          <div className={`shrink-0 w-10 h-10 rounded-full border flex items-center justify-center transition-all duration-300 ${isOpen
+            ? 'border-[#E02424] bg-[#E02424] text-white rotate-45'
+            : 'border-neutral-200 text-neutral-400 group-hover:border-[#E02424] group-hover:text-[#E02424]'
+            }`}>
             <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M7 1V13M1 7H13" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+              <path d="M7 1V13M1 7H13" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
             </svg>
           </div>
         </div>
@@ -71,7 +68,7 @@ const FAQItem: React.FC<FAQItemProps> = ({ index, question, answer, isOpen, onCl
 };
 
 const FAQ: React.FC = () => {
-  const [openIndex, setOpenIndex] = useState<number | null>(0);
+  const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   const faqs = [
     {
@@ -93,14 +90,14 @@ const FAQ: React.FC = () => {
   ];
 
   return (
-    <section id="faq" className="relative z-40 bg-white py-32 md:py-48 overflow-hidden">
+    <section id="faq" className="relative z-40 bg-white pt-8 md:pt-12 pb-12 overflow-hidden">
       <div className="max-w-[1000px] mx-auto px-8">
         {/* Header Indicator */}
         <motion.div
           initial={{ opacity: 0, y: 10 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="flex items-center justify-center gap-3 mb-8"
+          className="flex items-center justify-center gap-3 mb-6"
         >
           <div className="w-1.5 h-1.5 rounded-full bg-[#E02424]" />
           <span className="text-neutral-400 text-[11px] font-medium tracking-[0.25em] uppercase">
@@ -114,7 +111,7 @@ const FAQ: React.FC = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="text-center text-[clamp(40px,5vw,64px)] font-medium text-neutral-900 tracking-tightest leading-tight mb-24"
+          className="text-center text-[clamp(40px,5vw,64px)] font-medium text-neutral-900 tracking-tightest leading-tight mb-8"
         >
           Got any questions?
         </motion.h2>

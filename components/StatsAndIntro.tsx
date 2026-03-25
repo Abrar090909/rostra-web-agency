@@ -44,7 +44,7 @@ const StatsAndIntro: React.FC = () => {
       </div>
 
       {/* 2. Main Text Block & Inline CTA */}
-      <div className="max-w-[1200px] mx-auto px-6 md:px-12 pt-16 md:pt-24 pb-16 md:pb-24">
+      <div className="max-w-[1200px] mx-auto px-6 md:px-12 pt-12 md:pt-16 pb-12 md:pb-16">
         <div className="flex flex-col md:flex-row md:items-center gap-10 md:gap-16">
           {/* Text Content */}
           <div className="max-w-[840px]">
@@ -55,9 +55,9 @@ const StatsAndIntro: React.FC = () => {
               transition={{ duration: 0.8 }}
               className="text-[32px] md:text-[54px] font-medium leading-[1.2] md:leading-[1.25] tracking-tightest"
             >
-              <span className="text-white/45 block">we design systems that</span>
-              <span className="text-white">feel intentional, perform flawlessly,</span>
-              <span className="text-white/45 block">and scale with you</span>
+              <span className="text-white/45 block">We design performance-driven digital systems that</span>
+              <span className="text-white">feel intentional, scale seamlessly with your business,</span>
+              <span className="text-white/45 block">and turn visibility into measurable results at every touchpoint.</span>
             </motion.h2>
           </div>
 

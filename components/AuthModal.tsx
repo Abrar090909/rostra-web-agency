@@ -144,7 +144,7 @@ const AuthModal: React.FC<AuthModalProps> = ({ isOpen, onClose }) => {
                                                     {isLogin ? 'Welcome back' : 'Create account'}<span className="text-[#E02424]">.</span>
                                                 </h2>
                                                 <p className="text-white/40 text-sm">
-                                                    {isLogin ? 'Login to your account' : 'Join Rostra agency today'}
+                                                    {isLogin ? 'Login to your account' : 'Join Rostra Agency today'}
                                                 </p>
                                             </div>
                                             <button
@@ -189,7 +189,7 @@ const AuthModal: React.FC<AuthModalProps> = ({ isOpen, onClose }) => {
                                                     type="email"
                                                     value={email}
                                                     onChange={(e) => setEmail(e.target.value)}
-                                                    placeholder="info@rostra.in"
+                                                    placeholder="contact@rostra.in"
                                                     className="bg-white/5 border border-white/10 rounded-2xl px-5 py-4 focus:border-[#E02424] focus:bg-white/10 transition-all outline-none text-white text-sm"
                                                 />
                                             </div>

@@ -81,10 +81,10 @@ const ViewAllTile: React.FC<{ size: 'large' | 'small' }> = ({ size }) => (
 
 const Projects: React.FC = () => {
   return (
-    <section id="projects" className="bg-[rgb(17,17,17)] text-white pt-[96px] pb-[120px] relative z-20">
+    <section id="projects" className="bg-[rgb(17,17,17)] text-white pt-12 pb-16 relative z-20">
       <div className="max-w-[1200px] mx-auto px-6 md:px-[48px]">
         {/* Header - Moved to the right */}
-        <div className="mb-20 text-right">
+        <div className="mb-12 text-right">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -101,8 +101,8 @@ const Projects: React.FC = () => {
           </motion.div>
         </div>
 
-        {/* ROW 1: 2 BOXES */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-[32px] md:h-[420px]">
+        {/* ROW 1: 3 BOXES */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-[32px] md:h-[420px]">
           <div onClick={() => window.open('https://pulse8gym.com/', '_blank')} className="contents">
             <ProjectCard
               title="Pulse8 Gym"
@@ -123,26 +123,36 @@ const Projects: React.FC = () => {
               size="large"
             />
           </div>
+          <div onClick={() => window.open('https://entertainmentstore.in/', '_blank')} className="contents">
+            <ProjectCard
+              title="The Entertainment Store"
+              category="Pop Culture"
+              service="Merchandise Platform"
+              image="https://images.unsplash.com/photo-1612036782180-6f0b6cd846fe?q=80&w=1200&auto=format&fit=crop"
+              delay={0.3}
+              size="large"
+            />
+          </div>
         </div>
 
         {/* ROW 2: 3 BOXES */}
         <div className="grid grid-cols-1 md:grid-cols-[1fr_1fr_1.5fr] gap-[32px] md:h-[320px] mt-[32px]">
-          <div onClick={() => window.open('https://lagompatisserie.com/', '_blank')} className="contents">
+          <div onClick={() => window.open('https://sanandabasak.com/', '_blank')} className="contents">
             <ProjectCard
-              title="Lagom Patisserie"
-              category="Cakes & Bakery"
-              service="E-commerce Experience"
-              image="https://images.unsplash.com/photo-1555507036-ab1f4038808a?q=80&w=1200&auto=format&fit=crop"
+              title="Sananda Basak"
+              category="Fashion"
+              service="Sustainable E-commerce"
+              image="https://images.unsplash.com/photo-1441986300917-64674bd600d8?q=80&w=1200&auto=format&fit=crop"
               delay={0.4}
               size="small"
             />
           </div>
-          <div onClick={() => window.open('https://www.embarkperfumes.com/', '_blank')} className="contents">
+          <div onClick={() => window.open('https://kids-land.in/', '_blank')} className="contents">
             <ProjectCard
-              title="Embark Perfumes"
-              category="Lifestyle"
-              service="Digital Identity"
-              image="https://images.unsplash.com/photo-1541643600914-78b084683601?q=80&w=1200&auto=format&fit=crop"
+              title="Kids Land"
+              category="Education"
+              service="Institutional Website"
+              image="https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?q=80&w=1200&auto=format&fit=crop"
               delay={0.5}
               size="small"
             />

@@ -82,6 +82,24 @@ const Testimonials: React.FC = () => {
       author: "Varsha Dalal",
       company: "Embark Perfumes",
       rating: "4.8"
+    },
+    {
+      quote: "The strategic approach to our website redesign was impressive. They understood our market and delivered a platform that truly speaks to our audience.",
+      author: "Rahul Mehta",
+      company: "Urban Spaces",
+      rating: "4.9"
+    },
+    {
+      quote: "Professional, creative, and data-driven. Rostra didn't just build a website; they built a lead generation engine for our consulting firm.",
+      author: "Priya Sharma",
+      company: "Apex Consultants",
+      rating: "4.8"
+    },
+    {
+      quote: "Rostra built a fun and functional website for Kids Land. It perfectly showcases our programs and has made admissions much smoother.",
+      author: "Meera Patel",
+      company: "Kids Land",
+      rating: "4.8"
     }
   ];
 
@@ -89,13 +107,13 @@ const Testimonials: React.FC = () => {
   const marqueeItems = [...testimonials, ...testimonials];
 
   return (
-    <section id="testimonials" className="relative z-30 bg-[rgb(17,17,17)] pt-48 pb-64 -mt-12 overflow-hidden">
+    <section id="testimonials" className="relative z-30 bg-[rgb(17,17,17)] pt-8 pb-24 overflow-hidden">
       {/* Visual Mask */}
-      <div className="absolute top-0 left-0 w-full h-48 bg-gradient-to-t from-[rgb(17,17,17)] via-[rgb(17,17,17)] to-transparent pointer-events-none" />
+      <div className="absolute top-0 left-0 w-full h-24 bg-gradient-to-t from-[rgb(17,17,17)] via-[rgb(17,17,17)] to-transparent pointer-events-none" />
 
       <div className="w-full relative z-10">
         {/* Centered Header Section */}
-        <div className="max-w-[1400px] mx-auto text-center mb-16 flex flex-col items-center px-6">
+        <div className="max-w-[1400px] mx-auto text-center mb-8 flex flex-col items-center px-6">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}

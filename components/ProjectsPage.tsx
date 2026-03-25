@@ -7,6 +7,9 @@ import Footer from './Footer';
 const projects = [
   { title: "Pulse8 Gym", category: "Fitness", service: "Full Brand Website", image: "https://images.unsplash.com/photo-1540497077202-7c8a3999166f?q=80&w=1200&auto=format&fit=crop", url: "https://pulse8gym.com/" },
   { title: "Florian Hurel", category: "Beauty & Wellness", service: "Luxury Brand Experience", image: "https://images.unsplash.com/photo-1560066984-138dadb4c035?q=80&w=1200&auto=format&fit=crop", url: "https://florianhurelhaircouture.com/" },
+  { title: "The Entertainment Store", category: "Pop Culture", service: "Merchandise Platform", image: "https://images.unsplash.com/photo-1612036782180-6f0b6cd846fe?q=80&w=1200&auto=format&fit=crop", url: "https://entertainmentstore.in/" },
+  { title: "Sananda Basak", category: "Sustainable Fashion", service: "E-commerce Platform", image: "https://images.unsplash.com/photo-1441986300917-64674bd600d8?q=80&w=1200&auto=format&fit=crop", url: "https://sanandabasak.com/" },
+  { title: "Kids Land", category: "Education", service: "Institutional Website", image: "https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?q=80&w=1200&auto=format&fit=crop", url: "https://kids-land.in/" },
   { title: "Lagom Patisserie", category: "Cakes & Bakery", service: "E-commerce Experience", image: "https://images.unsplash.com/photo-1555507036-ab1f4038808a?q=80&w=1200&auto=format&fit=crop", url: "https://lagompatisserie.com/" },
   { title: "Embark Perfumes", category: "Lifestyle", service: "Digital Identity", image: "https://images.unsplash.com/photo-1541643600914-78b084683601?q=80&w=1200&auto=format&fit=crop", url: "https://www.embarkperfumes.com/" },
 ];

@@ -53,7 +53,7 @@ const PrivacyPolicyPage: React.FC = () => {
                         <div>
                             <h2 className="text-white text-2xl font-medium mb-4">5. Contact Us</h2>
                             <p>
-                                If you have any questions about this privacy policy or our privacy practices, please contact us at: <a href="mailto:info@rostra.in" className="text-[#E02424]">info@rostra.in</a>
+                                If you have any questions about this privacy policy or our privacy practices, please contact us at: <a href="mailto:contact@rostra.in" className="text-[#E02424]">contact@rostra.in</a>
                             </p>
                         </div>
                     </div>

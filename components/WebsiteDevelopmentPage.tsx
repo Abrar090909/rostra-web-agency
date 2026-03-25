@@ -17,14 +17,14 @@ const ServiceDetailItem: React.FC<{ title: string; index: number }> = ({ title, 
 
 const WebsiteDevelopmentPage: React.FC = () => {
     const list = [
+        "Custom Web Development (Next.js/React)",
+        "WordPress Development & Design",
+        "Shopify E-commerce Stores",
+        "Landing Pages & Sales Funnels",
         "Business / Corporate Websites",
-        "Landing Pages",
-        "Portfolio Websites",
-        "Custom Web Applications",
-        "WordPress Development",
-        "Website Redesign",
-        "Website Maintenance & Support",
-        "UI/UX Design"
+        "E-commerce Solutions",
+        "UI/UX Design for Web",
+        "Website Redesign & Speed Optimization"
     ];
 
     return (
@@ -34,7 +34,7 @@ const WebsiteDevelopmentPage: React.FC = () => {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8 }}
-                    className="mb-20"
+                    className="mb-12"
                 >
                     <span className="text-[#E02424] text-[12px] uppercase tracking-[0.3em] font-bold block mb-4">Service — 01</span>
                     <h1 className="text-[clamp(40px,7vw,100px)] font-bold tracking-tightest leading-none text-white mb-8">
@@ -49,7 +49,7 @@ const WebsiteDevelopmentPage: React.FC = () => {
                     initial={{ opacity: 0, scale: 0.95 }}
                     animate={{ opacity: 1, scale: 1 }}
                     transition={{ duration: 1, delay: 0.2 }}
-                    className="w-full aspect-[21/9] rounded-[40px] overflow-hidden mb-20 border border-white/5"
+                    className="w-full aspect-[21/9] rounded-[40px] overflow-hidden mb-12 border border-white/5"
                 >
                     <img
                         src="/images/services/web-dev.png"
@@ -58,7 +58,7 @@ const WebsiteDevelopmentPage: React.FC = () => {
                     />
                 </motion.div>
 
-                <div className="grid lg:grid-cols-[1fr_400px] gap-20">
+                <div className="grid lg:grid-cols-[1fr_400px] gap-12">
                     <div className="flex flex-col">
                         <h2 className="text-xs font-bold uppercase tracking-[0.2em] text-[#E02424] mb-8">Solutions to list:</h2>
                         <div className="flex flex-col">
@@ -70,12 +70,25 @@ const WebsiteDevelopmentPage: React.FC = () => {
 
                     <div className="bg-[rgb(17,17,17)] rounded-[32px] p-10 border border-white/5 h-fit sticky top-32">
                         <h3 className="text-2xl font-bold text-white mb-4">Scale your presence</h3>
-                        <p className="text-white/40 mb-8 leading-relaxed">
+                        <p className="text-white/40 mb-2 leading-relaxed">
                             We build websites that aren't just pretty boxes, but high-converting machines designed for growth.
                         </p>
-                        <a href="#contact" className="inline-flex items-center justify-center w-full py-4 bg-[#E02424] text-white rounded-2xl font-bold uppercase text-[12px] tracking-widest hover:bg-[#c51f1f] transition-colors">
-                            Start Your Project
-                        </a>
+                        <p className="text-[#E02424] text-sm font-bold mb-8 uppercase tracking-wider">
+                            Pay only after the work is done
+                        </p>
+                        <motion.button
+                            onClick={() => window.location.hash = '#book-a-call'}
+                            whileHover={{ scale: 1.02, backgroundColor: '#c51f1f' }}
+                            whileTap={{ scale: 0.98 }}
+                            className="bg-[#E02424] text-white px-8 py-4 rounded-full flex items-center justify-center gap-3 group transition-all shadow-[0_10px_30px_rgba(224,36,36,0.3)] w-full"
+                        >
+                            <span className="text-sm font-bold uppercase tracking-widest">Book a call</span>
+                            <div className="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="rotate-45">
+                                    <path d="M12 5V19M5 12l7-7 7 7" />
+                                </svg>
+                            </div>
+                        </motion.button>
                     </div>
                 </div>
             </div>

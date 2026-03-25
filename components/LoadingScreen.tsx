@@ -1,4 +1,3 @@
-
 import React, { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
@@ -7,45 +6,44 @@ interface LoadingScreenProps {
 }
 
 const LoadingScreen: React.FC<LoadingScreenProps> = ({ onLoadingComplete }) => {
-    const [isExiting, setIsExiting] = useState(false);
-    const [pageLoaded, setPageLoaded] = useState(false);
+    const [isVisible, setIsVisible] = useState(true);
+
+    const handleVideoEnd = () => {
+        setIsVisible(false);
+        setTimeout(onLoadingComplete, 600);
+    };
 
     useEffect(() => {
-        // Set a hard limit of 6 seconds for the loading screen
+        // Fallback safety timer
         const timer = setTimeout(() => {
-            handleComplete();
-        }, 6000);
+            if (isVisible) {
+                setIsVisible(false);
+                setTimeout(onLoadingComplete, 600);
+            }
+        }, 5000);
 
         return () => clearTimeout(timer);
-    }, []);
-
-    const handleComplete = () => {
-        setIsExiting(true);
-        setTimeout(onLoadingComplete, 1000);
-    };
+    }, [isVisible, onLoadingComplete]);
 
     return (
         <AnimatePresence>
-            {!isExiting && (
+            {isVisible && (
                 <motion.div
-                    initial={{ opacity: 1 }}
+                    className="fixed inset-0 z-[9999] bg-[#fcfcfc] flex items-center justify-center p-6"
                     exit={{ opacity: 0 }}
-                    transition={{ duration: 1, ease: "easeInOut" }}
-                    className="fixed inset-0 z-[10000] bg-black flex items-center justify-center overflow-hidden"
+                    transition={{ duration: 0.8, ease: "easeInOut" }}
                 >
-                    <video
-                        autoPlay
-                        muted
-                        loop
-                        playsInline
-                        className="w-full h-full object-cover"
-                    >
-                        <source src="/loading-video.mp4" type="video/mp4" />
-                        Your browser does not support the video tag.
-                    </video>
-
-                    {/* Optional overlay to soften the video if needed */}
-                    <div className="absolute inset-0 bg-black/10 pointer-events-none" />
+                    <div className="relative w-full max-w-[240px] md:max-w-[320px]">
+                        <video
+                            autoPlay
+                            muted
+                            playsInline
+                            onEnded={handleVideoEnd}
+                            className="w-full h-full object-contain mix-blend-multiply"
+                        >
+                            <source src="/loading-video.mp4" type="video/mp4" />
+                        </video>
+                    </div>
                 </motion.div>
             )}
         </AnimatePresence>
