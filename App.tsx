@@ -79,8 +79,8 @@ const App: React.FC = () => {
     // Initial check is handled by the isLoading effect below
 
     const lenis = new Lenis({
-      lerp: 0.08,
-      wheelMultiplier: 1.0,
+      lerp: 0.15,
+      wheelMultiplier: 1.3,
       syncTouch: false,
       smoothWheel: true,
     });

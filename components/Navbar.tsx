@@ -24,14 +24,14 @@ const Navbar: React.FC = () => {
   ];
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-[100] bg-white/90 backdrop-blur-xl border-b border-neutral-100 transition-all duration-300">
+    <nav className="fixed top-0 left-0 right-0 z-[100] bg-black/40 backdrop-blur-md border-b border-white/5 transition-all duration-300">
       <div className="max-w-[1200px] mx-auto px-[clamp(24px,5vw,64px)] h-[88px] flex items-center justify-between">
         {/* Logo & Links Container */}
         <div className="flex items-center gap-16">
           {/* Logo */}
           <a href="#home" className="flex items-center group">
             <div className="h-20 w-auto flex items-center justify-center group-hover:scale-105 transition-transform duration-300">
-              <img src="/logo.png" alt="Rostra Logo" className="h-full w-auto object-contain" />
+              <img src="/logo.png" alt="Rostra Logo" className="h-full w-auto object-contain brightness-0 invert" />
             </div>
           </a>
 
@@ -46,7 +46,7 @@ const Navbar: React.FC = () => {
               >
                 <a
                   href={link.href}
-                  className="text-[15px] font-medium text-neutral-500 hover:text-neutral-900 transition-colors flex items-center gap-1.5 py-8"
+                  className="text-[15px] font-medium text-white/80 hover:text-white transition-colors flex items-center gap-1.5 py-8 drop-shadow-sm"
                 >
                   {link.label}
                   {link.dropdown && (
@@ -89,7 +89,7 @@ const Navbar: React.FC = () => {
         <div className="flex items-center gap-4">
           {/* Mobile Toggle */}
           <button
-            className="md:hidden p-2 text-neutral-900 flex flex-col gap-1.5"
+            className="md:hidden p-2 text-white flex flex-col gap-1.5 drop-shadow-sm"
             onClick={() => setIsOpen(!isOpen)}
             aria-label="Toggle menu"
           >
@@ -101,7 +101,7 @@ const Navbar: React.FC = () => {
           {/* CTA */}
           <a
             href="#contact"
-            className="hidden md:inline-flex items-center justify-center px-8 py-3 bg-[#111] text-white text-[14px] font-bold rounded-full shadow-lg shadow-neutral-900/10 hover:bg-[#E02424] hover:shadow-red-500/25 transition-all duration-300"
+            className="hidden md:inline-flex items-center justify-center px-8 py-3 bg-white text-black text-[14px] font-bold rounded-full shadow-lg hover:bg-[#E02424] hover:text-white hover:shadow-red-500/25 transition-all duration-150"
           >
             Contact Us
           </a>
