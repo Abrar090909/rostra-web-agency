@@ -92,7 +92,7 @@ const ValueCardsSection: React.FC = () => {
     ];
 
     return (
-        <section className="bg-[rgb(17,17,17)] pt-8 md:pt-12 pb-4 md:pb-6 relative overflow-hidden">
+        <section className="bg-[rgb(17,17,17)] pt-8 md:pt-12 pb-16 md:pb-24 relative overflow-hidden">
             <div className="max-w-[1400px] mx-auto px-[clamp(24px,5vw,64px)]">
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
                     {stats.map((stat, index) => (

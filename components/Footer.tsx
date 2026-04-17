@@ -28,7 +28,7 @@ const Footer: React.FC = () => {
             className="flex items-center gap-3"
           >
             <span className="w-2 h-2 rounded-full bg-[#E02424] shadow-[0_0_10px_rgba(224,36,36,0.5)]" />
-            <span className="text-[11px] md:text-xs font-medium text-white/50 uppercase tracking-widest">Available for freelance</span>
+            <span className="text-[11px] md:text-xs font-medium text-white/50 uppercase tracking-widest">Available for projects</span>
           </motion.div>
 
           <motion.button
@@ -36,12 +36,11 @@ const Footer: React.FC = () => {
             initial={{ opacity: 0, x: 20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            whileHover={{ scale: 1.1 }}
             className="flex items-center gap-4 group"
           >
             <span className="text-[11px] font-bold uppercase tracking-widest text-white/50 group-hover:text-white transition-colors">Back to top</span>
             <div className="w-10 h-10 rounded-full bg-white flex items-center justify-center text-black">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="transition-transform group-hover:-translate-y-1">
                 <path d="M12 19V5M5 12l7-7 7 7" />
               </svg>
             </div>
@@ -113,13 +112,13 @@ const Footer: React.FC = () => {
             <div>
               <motion.button
                 onClick={() => window.location.hash = '#book-a-call'}
-                whileHover={{ scale: 1.02, backgroundColor: '#c51f1f' }}
+                whileHover={{ backgroundColor: '#c51f1f' }}
                 whileTap={{ scale: 0.98 }}
                 className="bg-[#E02424] text-white px-10 py-5 rounded-full flex items-center gap-4 group transition-all shadow-[0_10px_30px_rgba(224,36,36,0.3)]"
               >
                 <span className="text-sm font-bold uppercase tracking-widest">Book a call</span>
                 <div className="w-6 h-6 rounded-full bg-white/20 flex items-center justify-center">
-                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" className="rotate-45">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" className="rotate-45 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1">
                     <path d="M12 5V19M5 12l7-7 7 7" />
                   </svg>
                 </div>

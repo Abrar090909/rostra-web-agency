@@ -162,7 +162,7 @@ const App: React.FC = () => {
       default:
         return (
           <>
-            <Hero />
+            <Hero isLoaded={!isLoading} />
             <StatsAndIntro />
             <Projects />
             <ServicesSection />

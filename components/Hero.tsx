@@ -1,6 +1,7 @@
 
 import React, { useRef } from 'react';
 import { motion } from 'framer-motion';
+import AnimatedGradientBackground from './ui/animated-gradient-background';
 
 // --- Inline Widgets for Headline ---
 
@@ -93,11 +94,11 @@ const InlineApp = () => (
 // --- Existing Components for Bottom Section ---
 
 const CompanyLogo: React.FC<{ name: string; children: React.ReactNode }> = ({ name, children }) => (
-  <div className="flex items-center gap-2 opacity-60 hover:opacity-100 transition-all duration-300 cursor-default grayscale hover:grayscale-0 group">
+  <div className="flex items-center gap-2 opacity-80 hover:opacity-100 transition-all duration-300 cursor-default group drop-shadow-md">
     <div className="w-5 h-5 md:w-6 md:h-6 flex items-center justify-center transition-colors">
       {children}
     </div>
-    <span className="text-sm md:text-base font-bold tracking-tight text-neutral-400 group-hover:text-neutral-900 transition-colors hidden md:inline-block">{name}</span>
+    <span className="text-sm md:text-base font-bold tracking-tight text-white/70 group-hover:text-white transition-colors hidden md:inline-block">{name}</span>
   </div>
 );
 
@@ -159,51 +160,21 @@ const Cursor: React.FC<{ label: string; color: string; x: number; y: number; del
   </motion.div>
 );
 
-const Hero: React.FC = () => {
+const Hero: React.FC<{ isLoaded?: boolean }> = ({ isLoaded = true }) => {
   const containerRef = useRef(null);
 
   return (
     <section id="home" ref={containerRef} className="relative w-full pt-32 pb-16 px-6 md:px-8 bg-[#fcfcfc] overflow-hidden flex flex-col items-center">
 
-      {/* --- Background Patterns & Texture --- */}
-
-      {/* 1. Technical Grid (Graph paper effect) - Fades out at edges */}
-      <div className="absolute inset-0 z-0 pointer-events-none opacity-[0.03]"
-        style={{
-          backgroundImage: `
-                linear-gradient(to right, #000 1px, transparent 1px),
-                linear-gradient(to bottom, #000 1px, transparent 1px)
-             `,
-          backgroundSize: '48px 48px',
-          maskImage: 'radial-gradient(ellipse at center, black 40%, transparent 80%)',
-          WebkitMaskImage: 'radial-gradient(ellipse at center, black 40%, transparent 80%)'
-        }}
-      />
-
-      {/* 2. Micro-dots (Texture) - Adds 'paper' feel */}
-      <div className="absolute inset-0 z-0 pointer-events-none opacity-[0.04]"
-        style={{
-          backgroundImage: 'radial-gradient(#111 0.5px, transparent 0.5px)',
-          backgroundSize: '12px 12px'
-        }}
-      />
-
-      {/* 3. Subtle Grain/Noise Overlay - Removes digital flatness */}
-      <div className="absolute inset-0 z-0 pointer-events-none opacity-[0.02] mix-blend-multiply"
-        style={{
-          backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")`
-        }}
-      />
-
-      {/* 4. Large Geometric Accents (The "Impact") */}
-      <svg className="absolute inset-0 z-0 pointer-events-none w-full h-full overflow-visible opacity-[0.03]">
-        <circle cx="0" cy="0" r="500" fill="none" stroke="currentColor" strokeWidth="2" className="text-black" />
-        <circle cx="100%" cy="20%" r="400" fill="none" stroke="currentColor" strokeWidth="2" strokeDasharray="12 12" className="text-red-600" />
-        <path d="M-100,200 Q400,300 800,100 T1800,200" fill="none" stroke="currentColor" strokeWidth="2" className="text-black" />
-      </svg>
-
-      {/* Subtle Warm Glows (Replaced multi-color with neutral/warm) */}
-      <div className="absolute top-[10%] left-[5%] w-[300px] h-[300px] bg-red-500/5 rounded-full blur-[120px] pointer-events-none" />
+      {/* Gradient Background */}
+      {isLoaded && (
+        <AnimatedGradientBackground 
+          Breathing={true} 
+          gradientStops={[5, 20, 35, 50, 65, 80, 100]}
+          containerClassName="z-0 pointer-events-none opacity-80" 
+        />
+      )}
+      <div className="absolute inset-0 bg-black/30 z-0 pointer-events-none"></div>
 
 
       {/* 1. Main Headline Section */}
@@ -212,21 +183,19 @@ const Hero: React.FC = () => {
           <motion.div
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
-            whileHover={{ scale: 1.05 }}
             transition={{ delay: 0.1 }}
-            className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-neutral-50 border border-neutral-100 text-neutral-600 text-xs font-bold uppercase tracking-widest cursor-pointer shadow-sm hover:shadow-md transition-shadow"
+            className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-black/30 border border-white/20 text-white text-xs font-bold uppercase tracking-widest cursor-pointer shadow-sm hover:shadow-md transition-shadow backdrop-blur-sm"
           >
             <span className="relative flex h-2 w-2">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
               <span className="relative inline-flex rounded-full h-2 w-2 bg-[#E02424]"></span>
             </span>
-            Available for new projects
+            Book a free demo
           </motion.div>
 
           <motion.div
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
-            whileHover={{ scale: 1.05 }}
             transition={{ delay: 0.2 }}
             className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#E02424] text-white text-[10px] font-bold uppercase tracking-widest cursor-default shadow-[0_5px_15px_rgba(224,36,36,0.3)]"
           >
@@ -240,7 +209,7 @@ const Hero: React.FC = () => {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-          className="text-[clamp(2rem,4.5vw,3.8rem)] font-bold tracking-tight leading-[1.2] text-neutral-900 mb-6 max-w-[1100px] mx-auto"
+          className="text-[clamp(2rem,4.5vw,3.8rem)] font-bold tracking-tight leading-[1.2] text-white mb-6 max-w-[1100px] mx-auto drop-shadow-md"
         >
           Web Design
           <InlineBrowser />
@@ -278,7 +247,7 @@ const Hero: React.FC = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="text-lg md:text-2xl text-neutral-500 font-medium max-w-[800px] mx-auto leading-relaxed mb-8"
+          className="text-lg md:text-2xl text-neutral-200 font-medium max-w-[800px] mx-auto leading-relaxed mb-8 drop-shadow-md"
         >
           Rostra is a growth-focused digital marketing agency helping businesses generate leads, improve conversions, and build a strong online presence through performance-driven digital solutions.
         </motion.p>
@@ -289,11 +258,11 @@ const Hero: React.FC = () => {
           transition={{ duration: 0.8, delay: 0.3 }}
           className="flex flex-col sm:flex-row items-center justify-center gap-4"
         >
-          <a href="#contact" className="w-full sm:w-auto flex items-center justify-center gap-2 px-8 py-4 bg-[#111] text-white rounded-[14px] font-bold text-base hover:bg-[#E02424] hover:shadow-lg hover:shadow-red-500/20 hover:-translate-y-1 transition-all duration-300 active:scale-95 group">
+          <a href="#contact" className="w-full sm:w-auto flex items-center justify-center gap-2 px-8 py-4 bg-[#111] text-white rounded-[14px] font-bold text-base hover:bg-[#E02424] hover:shadow-lg hover:shadow-red-500/20 transition-all duration-300 active:scale-95 group">
             Start your project
             <i className="fa-solid fa-arrow-right text-sm ml-1 group-hover:translate-x-1 transition-transform"></i>
           </a>
-          <a href="#projects" className="w-full sm:w-auto flex items-center justify-center gap-2 px-8 py-4 bg-white text-neutral-600 rounded-[14px] font-bold text-base border border-neutral-200 hover:text-[#E02424] hover:border-red-100 hover:bg-red-50 transition-all duration-300 active:scale-95">
+          <a href="#projects" className="w-full sm:w-auto flex items-center justify-center gap-2 px-8 py-4 bg-white/10 text-white rounded-[14px] font-bold text-base border border-white/20 hover:text-white hover:border-white/40 hover:bg-white/20 transition-all duration-300 active:scale-95 backdrop-blur-md">
             View our work
           </a>
         </motion.div>
@@ -509,8 +478,8 @@ const Hero: React.FC = () => {
         transition={{ duration: 0.8 }}
         className="text-center w-full max-w-[1200px]"
       >
-        <h3 className="text-xl md:text-2xl font-bold text-neutral-900 mb-2">The strategy and technology behind high-performance digital growth</h3>
-        <p className="text-neutral-500 text-sm md:text-base mb-6 max-w-[800px] mx-auto">We blend modern technology with data-driven digital marketing to build fast, scalable online experiences that increase visibility, drive engagement, and convert visitors into customers.</p>
+        <h3 className="text-xl md:text-2xl font-bold text-white mb-2 drop-shadow-sm">The strategy and technology behind high-performance digital growth</h3>
+        <p className="text-white/70 text-sm md:text-base mb-6 max-w-[800px] mx-auto drop-shadow-sm">We blend modern technology with data-driven digital marketing to build fast, scalable online experiences that increase visibility, drive engagement, and convert visitors into customers.</p>
 
         {/* Logo Grid - Tech Stack Oriented */}
         <div className="flex flex-wrap justify-center items-center gap-10 md:gap-14 px-4 overflow-hidden">

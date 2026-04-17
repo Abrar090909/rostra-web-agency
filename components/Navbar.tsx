@@ -101,7 +101,7 @@ const Navbar: React.FC = () => {
           {/* CTA */}
           <a
             href="#contact"
-            className="hidden md:inline-flex items-center justify-center px-8 py-3 bg-[#111] text-white text-[14px] font-bold rounded-full shadow-lg shadow-neutral-900/10 hover:bg-[#E02424] hover:shadow-red-500/25 hover:-translate-y-[1px] transition-all duration-300"
+            className="hidden md:inline-flex items-center justify-center px-8 py-3 bg-[#111] text-white text-[14px] font-bold rounded-full shadow-lg shadow-neutral-900/10 hover:bg-[#E02424] hover:shadow-red-500/25 transition-all duration-300"
           >
             Contact Us
           </a>
