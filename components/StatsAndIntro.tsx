@@ -1,6 +1,7 @@
 
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import TextReveal from './ui/text-reveal';
 
 const MarqueeItem: React.FC = () => (
   <div className="flex items-center gap-[40px] px-[20px] h-full whitespace-nowrap">
@@ -48,17 +49,12 @@ const StatsAndIntro: React.FC = () => {
         <div className="flex flex-col md:flex-row md:items-center gap-10 md:gap-16">
           {/* Text Content */}
           <div className="max-w-[840px]">
-            <motion.h2
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8 }}
-              className="text-[32px] md:text-[54px] font-medium leading-[1.2] md:leading-[1.25] tracking-tightest"
-            >
-              <span className="text-white/45 block">We design performance-driven digital systems that</span>
-              <span className="text-white">feel intentional, scale seamlessly with your business,</span>
-              <span className="text-white/45 block">and turn visibility into measurable results at every touchpoint.</span>
-            </motion.h2>
+            <div className="text-[32px] md:text-[54px] font-medium leading-[1.2] md:leading-[1.25] tracking-tightest">
+              <TextReveal 
+                text="We design performance-driven digital systems that feel intentional, scale seamlessly with your business, and turn visibility into measurable results at every touchpoint." 
+                className="text-white"
+              />
+            </div>
           </div>
 
         </div>
