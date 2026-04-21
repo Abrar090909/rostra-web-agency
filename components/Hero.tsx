@@ -1,10 +1,95 @@
 
 import React, { useRef } from 'react';
 import { motion } from 'framer-motion';
-import AnoAI from './ui/animated-shader-background';
+import AnimatedGradientBackground from './ui/animated-gradient-background';
 
 // --- Inline Widgets for Headline ---
 
+const InlineBrowser = () => (
+  <motion.div
+    className="inline-flex align-middle mx-2 md:mx-4 relative -top-1 md:-top-3"
+    whileHover={{ scale: 1.05, rotate: -3 }}
+    initial={{ y: 0 }}
+    animate={{ y: [-6, 6, -6] }}
+    transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+  >
+    <div className="w-[90px] md:w-[130px] h-[60px] md:h-[84px] bg-white rounded-xl shadow-[0_20px_40px_-12px_rgba(0,0,0,0.12)] border border-neutral-200 flex flex-col overflow-visible relative z-10 cursor-default">
+      {/* Header */}
+      <div className="h-5 md:h-6 bg-neutral-50/80 border-b border-neutral-100 flex items-center px-2.5 gap-1.5 rounded-t-xl backdrop-blur-sm">
+        <div className="w-2 h-2 rounded-full bg-[#ff5f57]"></div>
+        <div className="w-2 h-2 rounded-full bg-[#febc2e]"></div>
+        <div className="w-2 h-2 rounded-full bg-[#28c840]"></div>
+      </div>
+
+      {/* Content - Realistic Dashboard Visual */}
+      <div className="p-2 flex-1 flex flex-col gap-1.5 overflow-hidden">
+        <div className="flex items-center gap-1.5">
+          <div className="w-4 h-4 rounded bg-red-50 flex items-center justify-center">
+            <div className="w-2 h-2 bg-red-500 rounded-full"></div>
+          </div>
+          <div className="h-1.5 w-10 bg-neutral-100 rounded-full"></div>
+        </div>
+        <div className="grid grid-cols-2 gap-1.5 mt-0.5">
+          <div className="h-4 bg-neutral-50 rounded border border-neutral-100/50 flex items-center justify-center overflow-hidden px-1">
+            <div className="w-full h-[2px] bg-red-200 rounded-full"></div>
+          </div>
+          <div className="h-4 bg-neutral-50 rounded border border-neutral-100/50 flex items-center justify-center overflow-hidden px-1">
+            <div className="w-full h-[2px] bg-blue-200 rounded-full"></div>
+          </div>
+        </div>
+        <div className="h-2 w-full bg-neutral-50 rounded border border-neutral-100/50 mt-auto"></div>
+      </div>
+
+      {/* Floating Badge */}
+      <motion.div
+        initial={{ opacity: 0, scale: 0.8 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ delay: 0.5 }}
+        className="absolute -right-3 -bottom-2 z-20"
+      >
+        <div className="bg-[#6366f1] text-white text-[9px] md:text-[10px] font-bold px-2.5 py-1 rounded-full shadow-lg border-[2px] border-white flex items-center gap-1.5">
+          <span className="w-1.5 h-1.5 bg-white rounded-full animate-pulse"></span>
+          Dev
+        </div>
+      </motion.div>
+    </div>
+  </motion.div>
+);
+
+const InlineApp = () => (
+  <motion.div
+    className="inline-flex align-middle mx-2 md:mx-4 relative -top-1 md:-top-3"
+    whileHover={{ scale: 1.05, rotate: 3 }}
+    initial={{ y: 0 }}
+    animate={{ y: [6, -6, 6] }}
+    transition={{ duration: 7, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+  >
+    <div className="w-[60px] md:w-[80px] h-[80px] md:h-[100px] bg-white rounded-[18px] shadow-[0_20px_40px_-12px_rgba(0,0,0,0.12)] border border-neutral-200 p-1.5 flex flex-col relative z-10 cursor-default">
+      <div className="w-full h-full bg-neutral-50 rounded-[12px] flex flex-col items-center justify-center gap-1.5 p-1.5 border border-neutral-100 overflow-hidden">
+        {/* Realistic Growth Graph Visual */}
+        <div className="w-full h-full relative flex items-end justify-between px-1">
+          <motion.div initial={{ height: "20%" }} animate={{ height: "40%" }} transition={{ duration: 2, repeat: Infinity, repeatType: "reverse" }} className="w-[3px] bg-orange-200 rounded-t-full"></motion.div>
+          <motion.div initial={{ height: "30%" }} animate={{ height: "70%" }} transition={{ duration: 2.5, repeat: Infinity, repeatType: "reverse" }} className="w-[3px] bg-orange-300 rounded-t-full"></motion.div>
+          <motion.div initial={{ height: "50%" }} animate={{ height: "90%" }} transition={{ duration: 1.8, repeat: Infinity, repeatType: "reverse" }} className="w-[3px] bg-orange-500 rounded-t-full"></motion.div>
+          <motion.div initial={{ height: "40%" }} animate={{ height: "60%" }} transition={{ duration: 2.2, repeat: Infinity, repeatType: "reverse" }} className="w-[3px] bg-orange-400 rounded-t-full"></motion.div>
+          <motion.div initial={{ height: "60%" }} animate={{ height: "80%" }} transition={{ duration: 2.8, repeat: Infinity, repeatType: "reverse" }} className="w-[3px] bg-orange-600 rounded-t-full"></motion.div>
+        </div>
+      </div>
+
+      {/* Floating Badge */}
+      <motion.div
+        initial={{ opacity: 0, scale: 0.8 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ delay: 0.7 }}
+        className="absolute -left-4 top-1/2 -translate-y-1/2 z-20"
+      >
+        <div className="bg-[#f97316] text-white text-[9px] md:text-[10px] font-bold px-2.5 py-1 rounded-full shadow-lg border-[2px] border-white">
+          SEO
+        </div>
+      </motion.div>
+    </div>
+  </motion.div>
+);
 
 // --- Existing Components for Bottom Section ---
 
@@ -79,11 +164,15 @@ const Hero: React.FC<{ isLoaded?: boolean }> = ({ isLoaded = true }) => {
   const containerRef = useRef(null);
 
   return (
-    <section id="home" ref={containerRef} className="relative w-full pt-32 pb-16 px-6 md:px-8 bg-black overflow-hidden flex flex-col items-center">
+    <section id="home" ref={containerRef} className="relative w-full pt-32 pb-16 px-6 md:px-8 bg-[#fcfcfc] overflow-hidden flex flex-col items-center">
 
-      {/* Shader Background */}
+      {/* Gradient Background */}
       {isLoaded && (
-        <AnoAI className="z-0 pointer-events-none opacity-80" />
+        <AnimatedGradientBackground 
+          Breathing={true} 
+          gradientStops={[5, 20, 35, 50, 65, 80, 100]}
+          containerClassName="z-0 pointer-events-none opacity-80" 
+        />
       )}
       <div className="absolute inset-0 bg-black/30 z-0 pointer-events-none"></div>
 
@@ -115,18 +204,44 @@ const Hero: React.FC<{ isLoaded?: boolean }> = ({ isLoaded = true }) => {
           </motion.div>
         </div>
 
-        {/* Updated Headline */}
-        <div className="relative">
-
-          <motion.h1
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-            className="text-[clamp(2rem,4.5vw,3.8rem)] font-bold tracking-tight leading-[1.2] text-white mb-6 max-w-[1100px] mx-auto drop-shadow-md"
-          >
-            Web Design, Digital Marketing & <span className="text-[#E02424] font-['Caveat'] italic font-semibold tracking-wide px-2">Growth Strategies</span> That Turn Clicks Into Customers
-          </motion.h1>
-        </div>
+        {/* Updated Headline with Inline Elements */}
+        <motion.h1
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+          className="text-[clamp(2rem,4.5vw,3.8rem)] font-bold tracking-tight leading-[1.2] text-white mb-6 max-w-[1100px] mx-auto drop-shadow-md"
+        >
+          Web Design
+          <InlineBrowser />
+          , Digital Marketing
+          <InlineApp />
+          & <span className="relative inline-block text-[#E02424]">
+            Growth Strategies
+            <svg className="absolute -bottom-1 md:-bottom-2 left-0 w-full h-[12px] md:h-[18px] pointer-events-none overflow-visible" viewBox="0 0 100 20" preserveAspectRatio="none">
+              <motion.path
+                d="M5,15 Q30,5 50,15 T95,10"
+                fill="none"
+                stroke="#E02424"
+                strokeWidth="2.5"
+                strokeLinecap="round"
+                initial={{ pathLength: 0 }}
+                animate={{ pathLength: 1 }}
+                transition={{ duration: 1, delay: 1, ease: "easeInOut" }}
+              />
+              <motion.path
+                d="M10,18 Q40,8 60,18 T90,12"
+                fill="none"
+                stroke="#E02424"
+                strokeWidth="1.5"
+                strokeLinecap="round"
+                opacity="0.6"
+                initial={{ pathLength: 0 }}
+                animate={{ pathLength: 1 }}
+                transition={{ duration: 0.8, delay: 1.2, ease: "easeInOut" }}
+              />
+            </svg>
+          </span> That Turn Clicks Into Customers
+        </motion.h1>
 
         <motion.p
           initial={{ opacity: 0, y: 20 }}
@@ -134,7 +249,7 @@ const Hero: React.FC<{ isLoaded?: boolean }> = ({ isLoaded = true }) => {
           transition={{ duration: 0.8, delay: 0.2 }}
           className="text-lg md:text-2xl text-neutral-200 font-medium max-w-[800px] mx-auto leading-relaxed mb-8 drop-shadow-md"
         >
-          We design high-converting web experiences and data-driven marketing strategies that generate leads and scale your business.
+          Rostra is a growth-focused digital marketing agency helping businesses generate leads, improve conversions, and build a strong online presence through performance-driven digital solutions.
         </motion.p>
 
         <motion.div
@@ -143,11 +258,11 @@ const Hero: React.FC<{ isLoaded?: boolean }> = ({ isLoaded = true }) => {
           transition={{ duration: 0.8, delay: 0.3 }}
           className="flex flex-col sm:flex-row items-center justify-center gap-4"
         >
-          <a href="#contact" className="w-full sm:w-auto flex items-center justify-center gap-2 px-8 py-4 bg-[#111] text-white rounded-[14px] font-bold text-base hover:bg-[#E02424] hover:shadow-lg hover:shadow-red-500/20 transition-all duration-150 active:scale-95 group">
+          <a href="#contact" className="w-full sm:w-auto flex items-center justify-center gap-2 px-8 py-4 bg-[#111] text-white rounded-[14px] font-bold text-base hover:bg-[#E02424] hover:shadow-lg hover:shadow-red-500/20 transition-all duration-300 active:scale-95 group">
             Start your project
-            <i className="fa-solid fa-arrow-right text-sm ml-1 group-hover:translate-x-1 transition-transform duration-150"></i>
+            <i className="fa-solid fa-arrow-right text-sm ml-1 group-hover:translate-x-1 transition-transform"></i>
           </a>
-          <a href="#projects" className="w-full sm:w-auto flex items-center justify-center gap-2 px-8 py-4 bg-white/10 text-white rounded-[14px] font-bold text-base border border-white/20 hover:text-white hover:border-white/40 hover:bg-white/20 transition-all duration-150 active:scale-95 backdrop-blur-md">
+          <a href="#projects" className="w-full sm:w-auto flex items-center justify-center gap-2 px-8 py-4 bg-white/10 text-white rounded-[14px] font-bold text-base border border-white/20 hover:text-white hover:border-white/40 hover:bg-white/20 transition-all duration-300 active:scale-95 backdrop-blur-md">
             View our work
           </a>
         </motion.div>
