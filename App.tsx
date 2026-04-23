@@ -25,13 +25,17 @@ import DigitalMarketingPage from './components/DigitalMarketingPage';
 import AdvertisingPerformancePage from './components/AdvertisingPerformancePage';
 import LoadingScreen from './components/LoadingScreen';
 import WhatsAppButton from './components/WhatsAppButton';
+import BlogPage from './components/BlogPage';
+import BlogPostPage from './components/BlogPostPage';
 import { auth } from './firebase';
 import { onAuthStateChanged, User, signOut } from 'firebase/auth';
 import { motion, AnimatePresence } from 'framer-motion';
+import { Helmet } from 'react-helmet-async';
 import Lenis from 'lenis';
 
 const App: React.FC = () => {
-  const [currentView, setCurrentView] = useState<'home' | 'about' | 'projects' | 'contact' | 'book-a-call' | 'privacy' | 'terms' | 'web-dev' | 'branding' | 'lead-gen' | 'marketing' | 'ads'>('home');
+  const [currentView, setCurrentView] = useState<'home' | 'about' | 'projects' | 'contact' | 'book-a-call' | 'privacy' | 'terms' | 'web-dev' | 'branding' | 'lead-gen' | 'marketing' | 'ads' | 'blog' | 'blog-post'>('home');
+  const [currentPostSlug, setCurrentPostSlug] = useState<string | null>(null);
   const [isLoading, setIsLoading] = useState(true);
   const [user, setUser] = useState<User | null>(null);
   const [isAuthModalOpen, setIsAuthModalOpen] = useState(false);
@@ -58,6 +62,12 @@ const App: React.FC = () => {
       else if (hash === '#service-lead-gen') setCurrentView('lead-gen');
       else if (hash === '#service-digital-marketing') setCurrentView('marketing');
       else if (hash === '#service-ads') setCurrentView('ads');
+      else if (hash === '#blog') setCurrentView('blog');
+      else if (hash.startsWith('#blog/')) {
+        const slug = hash.replace('#blog/', '');
+        setCurrentPostSlug(slug);
+        setCurrentView('blog-post');
+      }
       else if (['#services', '#testimonials', '#process', '#our-world'].includes(hash)) {
         setCurrentView('home');
       } else {
@@ -159,6 +169,10 @@ const App: React.FC = () => {
         return <DigitalMarketingPage />;
       case 'ads':
         return <AdvertisingPerformancePage />;
+      case 'blog':
+        return <BlogPage />;
+      case 'blog-post':
+        return <BlogPostPage slug={currentPostSlug || ''} />;
       default:
         return (
           <>
@@ -176,10 +190,15 @@ const App: React.FC = () => {
   };
 
   // Pages that either manage their own footer or shouldn't have one
-  const isStandalonePage = ['about', 'projects', 'contact', 'book-a-call', 'privacy', 'terms', 'web-dev', 'branding', 'lead-gen', 'marketing', 'ads'].includes(currentView);
+  const isStandalonePage = ['about', 'projects', 'contact', 'book-a-call', 'privacy', 'terms', 'web-dev', 'branding', 'lead-gen', 'marketing', 'ads', 'blog', 'blog-post'].includes(currentView);
 
   return (
     <>
+      <Helmet>
+        <title>Rostra Agency | Premium Web Design & Digital Solutions</title>
+        <meta name="description" content="Rostra Agency provides premium web development, branding, and digital marketing services to help your business grow." />
+        <meta name="keywords" content="web agency, web design, branding, lead generation, digital marketing" />
+      </Helmet>
       {isLoading && currentView === 'home' && (
         <LoadingScreen onLoadingComplete={() => setIsLoading(false)} />
       )}

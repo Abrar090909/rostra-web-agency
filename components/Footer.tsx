@@ -85,11 +85,11 @@ const Footer: React.FC = () => {
                   </a>
                   <a href="tel:+917903082941" className="text-sm text-white/60 hover:text-[#E02424] transition-colors flex items-center gap-2">
                     <span className="w-1 h-1 rounded-full bg-[#E02424]" />
-                    +91 7903082941
+                    +91 9348473185
                   </a>
                 </div>
                 <div className="flex gap-3 mt-3">
-                    <a href="https://www.instagram.com/rostra_digitalagency?igsh=dnR6c2R4aWtwaGk1" target="_blank" rel="noopener noreferrer" className="opacity-30 hover:opacity-100 transition-opacity"><i className="fa-brands fa-instagram text-xs"></i></a>
+                  <a href="https://www.instagram.com/rostra_digitalagency?igsh=dnR6c2R4aWtwaGk1" target="_blank" rel="noopener noreferrer" className="opacity-30 hover:opacity-100 transition-opacity"><i className="fa-brands fa-instagram text-xs"></i></a>
                   <a href="https://www.linkedin.com/company/rostramarketing/" target="_blank" rel="noopener noreferrer" className="opacity-30 hover:opacity-100 transition-opacity"><i className="fa-brands fa-linkedin text-xs"></i></a>
                   <a href="https://wa.me/918603038778?text=Hi%21%20I%27m%20interested%20in%20working%20with%20Rostra.%20Can%20we%20discuss%20a%20project%3F" target="_blank" rel="noopener noreferrer" className="opacity-30 hover:opacity-100 transition-opacity">
                     <i className="fa-brands fa-whatsapp text-xs"></i>

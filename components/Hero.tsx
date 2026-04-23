@@ -94,11 +94,11 @@ const InlineApp = () => (
 // --- Existing Components for Bottom Section ---
 
 const CompanyLogo: React.FC<{ name: string; children: React.ReactNode }> = ({ name, children }) => (
-  <div className="flex items-center gap-2 opacity-80 hover:opacity-100 transition-all duration-300 cursor-default group drop-shadow-md">
+  <div className="flex items-center gap-2 opacity-80 hover:opacity-100 transition-all duration-300 cursor-default group drop-shadow-sm">
     <div className="w-5 h-5 md:w-6 md:h-6 flex items-center justify-center transition-colors">
       {children}
     </div>
-    <span className="text-sm md:text-base font-bold tracking-tight text-white/70 group-hover:text-white transition-colors hidden md:inline-block">{name}</span>
+    <span className="text-sm md:text-base font-bold tracking-tight text-neutral-400 group-hover:text-neutral-900 transition-colors hidden md:inline-block">{name}</span>
   </div>
 );
 
@@ -166,15 +166,39 @@ const Hero: React.FC<{ isLoaded?: boolean }> = ({ isLoaded = true }) => {
   return (
     <section id="home" ref={containerRef} className="relative w-full pt-32 pb-16 px-6 md:px-8 bg-[#fcfcfc] overflow-hidden flex flex-col items-center">
 
-      {/* Gradient Background */}
-      {isLoaded && (
-        <AnimatedGradientBackground 
-          Breathing={true} 
-          gradientStops={[5, 20, 35, 50, 65, 80, 100]}
-          containerClassName="z-0 pointer-events-none opacity-80" 
-        />
-      )}
-      <div className="absolute inset-0 bg-black/30 z-0 pointer-events-none"></div>
+      {/* --- Background Patterns & Textures --- */}
+
+      {/* 1. Technical Grid (Graph paper effect) - Fades out at edges */}
+      <div className="absolute inset-0 z-0 pointer-events-none opacity-[0.03]"
+        style={{
+          backgroundImage: `
+            linear-gradient(to right, #000 1px, transparent 1px),
+            linear-gradient(to bottom, #000 1px, transparent 1px)
+          `,
+          backgroundSize: '48px 48px',
+          maskImage: 'radial-gradient(ellipse at center, black 40%, transparent 80%)',
+          WebkitMaskImage: 'radial-gradient(ellipse at center, black 40%, transparent 80%)'
+        }}
+      />
+
+      {/* 2. Micro-noise Overlay - Removes digital flatness */}
+      <div className="absolute inset-0 z-0 pointer-events-none opacity-[0.03] mix-blend-multiply"
+        style={{
+          backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")`
+        }}
+      />
+
+      {/* 3. Subtle Geometric Accents (Large Circles/Lines) */}
+      <svg className="absolute inset-0 z-0 pointer-events-none w-full h-full overflow-visible opacity-[0.04]">
+        <circle cx="0" cy="0" r="500" fill="none" stroke="currentColor" strokeWidth="1" className="text-black" />
+        <circle cx="100%" cy="20%" r="400" fill="none" stroke="currentColor" strokeWidth="1" strokeDasharray="8 8" className="text-red-500" />
+        <path d="M-100,200 Q400,300 800,100 T1800,200" fill="none" stroke="currentColor" strokeWidth="1" className="text-neutral-900" />
+      </svg>
+
+      {/* 4. Soft Ambient Glows */}
+      <div className="absolute top-0 right-1/4 w-[600px] h-[600px] bg-red-500/[0.03] rounded-full blur-[120px] z-0 pointer-events-none"></div>
+      <div className="absolute top-1/4 left-1/4 w-[400px] h-[400px] bg-blue-500/[0.02] rounded-full blur-[100px] z-0 pointer-events-none"></div>
+
 
 
       {/* 1. Main Headline Section */}
@@ -184,7 +208,7 @@ const Hero: React.FC<{ isLoaded?: boolean }> = ({ isLoaded = true }) => {
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ delay: 0.1 }}
-            className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-black/30 border border-white/20 text-white text-xs font-bold uppercase tracking-widest cursor-pointer shadow-sm hover:shadow-md transition-shadow backdrop-blur-sm"
+            className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white border border-neutral-200 text-neutral-800 text-xs font-bold uppercase tracking-widest cursor-pointer shadow-sm hover:shadow-md transition-shadow"
           >
             <span className="relative flex h-2 w-2">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
@@ -209,7 +233,7 @@ const Hero: React.FC<{ isLoaded?: boolean }> = ({ isLoaded = true }) => {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-          className="text-[clamp(2rem,4.5vw,3.8rem)] font-bold tracking-tight leading-[1.2] text-white mb-6 max-w-[1100px] mx-auto drop-shadow-md"
+          className="text-[clamp(2rem,4.5vw,3.8rem)] font-bold tracking-tight leading-[1.2] text-neutral-900 mb-6 max-w-[1100px] mx-auto drop-shadow-sm"
         >
           Web Design
           <InlineBrowser />
@@ -247,7 +271,7 @@ const Hero: React.FC<{ isLoaded?: boolean }> = ({ isLoaded = true }) => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="text-lg md:text-2xl text-neutral-200 font-medium max-w-[800px] mx-auto leading-relaxed mb-8 drop-shadow-md"
+          className="text-lg md:text-2xl text-neutral-600 font-medium max-w-[800px] mx-auto leading-relaxed mb-8 drop-shadow-sm"
         >
           Rostra is a growth-focused digital marketing agency helping businesses generate leads, improve conversions, and build a strong online presence through performance-driven digital solutions.
         </motion.p>
@@ -262,7 +286,7 @@ const Hero: React.FC<{ isLoaded?: boolean }> = ({ isLoaded = true }) => {
             Start your project
             <i className="fa-solid fa-arrow-right text-sm ml-1 group-hover:translate-x-1 transition-transform"></i>
           </a>
-          <a href="#projects" className="w-full sm:w-auto flex items-center justify-center gap-2 px-8 py-4 bg-white/10 text-white rounded-[14px] font-bold text-base border border-white/20 hover:text-white hover:border-white/40 hover:bg-white/20 transition-all duration-300 active:scale-95 backdrop-blur-md">
+          <a href="#projects" className="w-full sm:w-auto flex items-center justify-center gap-2 px-8 py-4 bg-white text-neutral-900 rounded-[14px] font-bold text-base border border-neutral-200 hover:border-neutral-300 hover:bg-neutral-50 transition-all duration-300 active:scale-95 shadow-sm">
             View our work
           </a>
         </motion.div>
@@ -275,7 +299,8 @@ const Hero: React.FC<{ isLoaded?: boolean }> = ({ isLoaded = true }) => {
         transition={{ duration: 1, delay: 0.4, ease: "easeOut" }}
         className="relative w-full max-w-[1000px] mx-auto z-20 mb-16"
       >
-        {/* Fun Elements - Draggable Stickers & Notes */}
+        <div className="relative">
+          {/* Fun Elements - Draggable Stickers & Notes */}
         <FloatingSticker icon="fa-brands fa-figma" color="text-black" rotate={-8} className="-top-12 -right-4 md:-right-16" delay={0.6} />
         <FloatingSticker icon="fa-solid fa-bolt" color="text-[#E02424]" rotate={12} className="-top-8 -left-4 md:-left-12" delay={0.7} />
         <FloatingSticker icon="fa-solid fa-code" color="text-neutral-700" rotate={-5} className="top-[40%] -left-8 md:-left-20" delay={0.8} />
@@ -468,7 +493,8 @@ const Hero: React.FC<{ isLoaded?: boolean }> = ({ isLoaded = true }) => {
 
           </div>
         </div>
-      </motion.div>
+      </div>
+    </motion.div>
 
       {/* 3. Trusted By Section */}
       <motion.div
@@ -478,8 +504,8 @@ const Hero: React.FC<{ isLoaded?: boolean }> = ({ isLoaded = true }) => {
         transition={{ duration: 0.8 }}
         className="text-center w-full max-w-[1200px]"
       >
-        <h3 className="text-xl md:text-2xl font-bold text-white mb-2 drop-shadow-sm">The strategy and technology behind high-performance digital growth</h3>
-        <p className="text-white/70 text-sm md:text-base mb-6 max-w-[800px] mx-auto drop-shadow-sm">We blend modern technology with data-driven digital marketing to build fast, scalable online experiences that increase visibility, drive engagement, and convert visitors into customers.</p>
+        <h3 className="text-xl md:text-2xl font-bold text-neutral-900 mb-2 drop-shadow-sm">The strategy and technology behind high-performance digital growth</h3>
+        <p className="text-neutral-500 text-sm md:text-base mb-6 max-w-[800px] mx-auto">We blend modern technology with data-driven digital marketing to build fast, scalable online experiences that increase visibility, drive engagement, and convert visitors into customers.</p>
 
         {/* Logo Grid - Tech Stack Oriented */}
         <div className="flex flex-wrap justify-center items-center gap-10 md:gap-14 px-4 overflow-hidden">
